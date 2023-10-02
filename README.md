@@ -10,8 +10,8 @@ Se encuentra en el directorio "doc" en formato "asciidoc".
 
 ### Crear documentos con imagen de docker
 
-. Requiere tener instalado `docker`
+1. Requiere tener instalado `docker`
 
-. Entrar en directorio "doc"
+2. Entrar en directorio "doc"
 
-. Ejecutar `make`
+3. Ejecutar `make`
