@@ -539,9 +539,8 @@ A continuación confirmamos los cambios y los enviamos al servidor
     $ git push
 ....
 
-!!! warning
-
-....
+[WARNING]
+====
 ¿Por qué hemos hecho rebase en master si a lo largo del curso hemos dicho que no se debe cambiar
 la linea principal?
 
@@ -550,7 +549,7 @@ En este caso nuestros cambios en _master_ solo estaban en nuestro repositorio, p
 el envío nadie más ha visto nuestras actualizaciones. Al hacer _rebase_ estamos deshaciendo nuestros
 cambios, bajarnos la última actualización compartida de _master_ y volviéndolos a aplicar. Con lo que
 realmente la historia compartida no se ha modificado.
-....
+====
 
 Este es un problema que debemos evitar en la medida de lo posible. La
 menor cantidad de gente posible debe tener acceso de escritura en master
@@ -588,12 +587,11 @@ espacio de trabajo al último commit.
 De nuevo vamos a modificar nuestro proyecto para ver esta situación en
 acción.
 
-!!! example
-
-....
+[example]
+====
 En remoto borra el año de la fecha y en local borra el mes. Pero esta vez
 **no hagas commit en local**. El archivo solo debe quedar modificado.
-....
+====
 
 La forma de proceder es la siguiente:
 
@@ -603,9 +601,8 @@ $ git pull # Sincronizamos con el repositorio remoto, -r para hacer rebase puede
 $ git stash pop # Sacamos los cambios de la pila
 ....
 
-!!! info
-
-....
+[NOTE]
+====
 Como ocurre habitualmente, git nos proporciona una forma de hacer todos estos pasos de una
 sola vez. Para ello tenemos que ejecutar lo siguiente:
 
@@ -615,7 +612,7 @@ En general no es mala idea ejecutar lo siguiente si somos conscientes, además, 
 cambios sin sincronizar:
 
     $ git pull --autostash --rebase
-....
+====
 
 Podría darse el caso de que al sacar los cambios de la pila hubiera
 algún conflicto. En ese caso actuamos como con el caso de _merge_ o
