@@ -1,0 +1,22 @@
+= Control de versiones: Git y Github
+Fernando Raya <fraya@ieszaidinvergeles.org>
+Sergio Gómez
+v.1.0, 2023-10: IES Zaidín Vergeles
+:keywords: git github
+:experimental:
+:description: Control de versiones con Git
+:doctype: book
+:icons: font
+:imagesdir: images
+:lang: es
+:toc:
+:sectnums:
+:sectlinks:
+:url-org: https://ieszaidinvergeles.org
+:sectnums:
+
+include::locale/attributes.adoc[]
+
+include::git-basico.adoc[]
+
+include::github.adoc[]
