@@ -20,3 +20,5 @@ include::git-basico.adoc[]
 include::github.adoc[]
 
 include::github-flow.adoc[]
+
+include::github-avanzado.adoc[]
