@@ -1,5 +1,4 @@
 = Control de versiones: Git y Github
-Sergio Gómez, Fernando Raya <fraya@ieszaidinvergeles.org>
 v.1.0, 2023-10: IES Zaidín Vergeles
 :keywords: git github
 :experimental:
@@ -13,7 +12,25 @@ v.1.0, 2023-10: IES Zaidín Vergeles
 :sectlinks:
 :url-org: https://ieszaidinvergeles.org
 
-include::locale/attributes.adoc[]
+include::locale/attributes-es.adoc[]
+
+[NOTE]
+====
+
+Documento original disponible en
+https://github.com/aulasoftwarelibre/taller-de-git
+
+Se ha pasado al formato https://asciidoctor[Asciidoctor] y realizado
+modificaciones en algunos textos y ejemplos por Fernando Raya
+<fraya@ieszaidinvergeles.org>.
+
+====
+
+.Licencia
+
+Distribuido con licencia
+https://creativecommons.org/licenses/by-nc/4.0/deed.es[CC BY-NC 4.0]
+al igual que el original.
 
 include::git-basico.adoc[]
 
