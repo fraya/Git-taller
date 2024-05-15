@@ -57,4 +57,4 @@ $ git config --global push.default simple
 _Bash completion_ es una utilidad que permite a bash completar órdenes y
 parámetros. Por defecto suele venir desactivada en Ubuntu y es necesario
 modificar el archivo `$HOME/.bashrc` para poder activarla. Simplemente
-hay que descomentar las líneas que lo activan,
+hay que descomentar las líneas que lo activan.
