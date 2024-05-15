@@ -6,19 +6,16 @@
 
 Si quieres instalar Git en Linux a través de un instalador binario, en
 general puedes hacerlo a través de la herramienta básica de gestión de
-paquetes que trae tu distribución. Si estás en un derivado de Red Hat,
-puedes usar `dnf`:
+paquetes que trae tu distribución.
 
 ....
-$ dnf install git-all
+$ sudo dnf install git-all <1>
+$ sudo apt install git-all <2>
+$ sudo zypper in git       <3>
 ....
-
-O si estás en una distribución basada en Debian como Ubuntu, prueba con
-`apt`:
-
-....
-$ apt install git-all
-....
+<1> Red Hat, Alma Linux, Rocky Linux
+<2> Debian, Ubuntu
+<3> OpenSuse
 
 ==== Instalando en Windows
 
@@ -39,10 +36,10 @@ $ brew install git
 ==== Tu identidad
 
 Lo primero que deberías hacer cuando instalas Git es establecer tu
-nombre de usuario y dirección de correo electrónico. Esto es importante
-porque las confirmaciones de cambios (commits) en Git usan esta
-información, y es introducida de manera inmutable en los commits que
-envías:
+nombre de usuario y dirección de correo electrónico. Esto es
+importante porque las *confirmaciones de cambios* (_commits_) en Git
+usan esta información, y es introducida de manera inmutable en los
+commits que envías:
 
 ....
 $ git config --global user.name "John Doe"
