@@ -8,9 +8,7 @@ datos más como un conjunto de instantáneas de un mini sistema de
 archivos.
 
 .Modelo de datos de los sistemas distribuidos tradicionales
-
-image::distribuido-tradicional.png[Modelo de datos de los sistemas
-distribuidos tradicionales]
+image::distribuido-tradicional.png[Modelo de datos de los sistemas distribuidos tradicionales]
 
 .Modelo de datos de Git
 image::distribuido-git.png[Modelo de datos de Git]
@@ -35,8 +33,7 @@ el directorio de Git (Git directory), el directorio de trabajo (working
 directory), y el área de preparación (staging area).
 
 .Directorio de trabajo, área de preparación, y directorio de Git
-image::git-estados.png[Directorio de trabajo, área de
-preparación, y directorio de Git]
+image::git-estados.png[Directorio de trabajo, área de preparación, y directorio de Git]
 
 === Flujos de trabajo distribuidos con git
 
@@ -67,8 +64,7 @@ todos los demás. Habitualmente, este escenario suele incluir un
 repositorio canónico, representante ``oficial'' del proyecto.
 
 .Flujo de trabajo del Gestor-de-Integraciones
-image::flujo-integracion.png[Flujo de trabajo del
-Gestor-de-Integraciones]
+image::flujo-integracion.png[Flujo de trabajo del Gestor-de-Integraciones]
 
 NOTE: Este modelo se puso muy de moda a raíz de la forja GitHub que se
 verá más adelante.
