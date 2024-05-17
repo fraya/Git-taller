@@ -1,8 +1,20 @@
-git.pdf: git.adoc
-	docker run --rm -v `pwd`:/documents/:z docker.io/asciidoctor/docker-asciidoctor asciidoctor-pdf -a lang=es git.adoc
+# Minimal makefile for Sphinx documentation
+#
 
-git.html: git.adoc git-basico.adoc
-	podman run -it -v `pwd`:/documents/:z docker.io/asciidoctor/docker-asciidoctor asciidoctor -a lang=es git.adoc
+# You can set these variables from the command line, and also
+# from the environment for the first two.
+SPHINXOPTS    ?=
+SPHINXBUILD   ?= sphinx-build
+SOURCEDIR     = source
+BUILDDIR      = build
 
-clean:
-	rm -f *.html *.pdf
+# Put it first so that "make" without argument is like "make help".
+help:
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+.PHONY: help Makefile
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
