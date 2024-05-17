@@ -74,20 +74,14 @@ trabajar desde nuestro equipo.
 
 === Clientes gráficos para GitHub
 
-Además, para Github existe un cliente propio tanto para Windows como
-para MacOSX:
+Además, para Github existe un cliente propio,
+https://desktop.github.com[Github desktop] o
+https://cli.github.com[Github CLI]
 
-* Cliente Windows: http://windows.github.com/
-* Cliente MacOSX: http://mac.github.com/
-
-Para Linux no hay cliente propio, pero sí hay plugin para la mayoría de
-editores de texto como atom, netbeans, eclipse o los editores de
-jetbrains.
-
-De todas maneras, estos clientes solo tienen el fin de facilitar el uso
-de Github, pero no son necesarios para usarlo. Es perfectamente válido
-usar el cliente de consola de Git o cualquier otro cliente genérico para
-Git. Uno de los más usados actualmente es
+De todas maneras, estos clientes solo tienen el fin de facilitar el
+uso de Github, pero no son necesarios para usarlo. Es perfectamente
+válido usar el cliente de consola de Git o cualquier otro cliente
+genérico para Git. Uno de los más usados actualmente es
 https://www.gitkraken.com/[GitKraken].
 
 === Crear un repositorio
