@@ -30,17 +30,29 @@ públicas SSH. Y, para ello, cada usuario del sistema ha de generarse
 una, si es que no la tiene ya. El proceso para hacerlo es similar en
 casi cualquier sistema operativo. Ante todo, asegurarte que no tengas ya
 una clave. (comprueba que el directorio `$HOME/usuario/.ssh` no tiene un
-archivo id_dsa.pub o id_rsa.pub).
+archivo `id_dsa.pub` o `id_rsa.pub`).
 
 Para crear una nueva clave usamos la siguiente orden:
 
 ....
-$ ssh-keygen -t rsa -C "Cuenta estudios"
+ssh-keygen -t ed25519 -C "tu_email@example.com"
 ....
 
-WARNING: Tu clave RSA te identifica contra los repositorios remotos, asegúrate de
-no compartir la clave privada con nadie. Por defecto la clave se crea como
-_solo lectura_.
+[NOTE]
+====
+
+Si estas usando un sistemas antiguo (_legacy_) que no soporte el
+algoritmo Ed25519 usa:
+
+....
+$ ssh-keygen -t rsa -C "tu_email@example.com"
+....
+
+====
+
+WARNING: Tu clave te identifica contra los repositorios remotos,
+asegúrate de no compartir la clave privada con nadie. Por defecto la
+clave se crea como _solo lectura_.
 
 === Configuración
 
