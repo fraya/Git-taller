@@ -32,6 +32,8 @@ Distribuido con licencia
 https://creativecommons.org/licenses/by-nc/4.0/deed.es[CC BY-NC 4.0]
 al igual que el original.
 
+include::introduccion.adoc[]
+
 include::git-basico.adoc[]
 
 include::github.adoc[]
