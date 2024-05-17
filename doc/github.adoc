@@ -1,15 +1,16 @@
 == Github
 
-Github es lo que se denomina una forja, un repositorio de proyectos que
-usan Git como sistema de control de versiones. Es la forja más popular,
-ya que alberga millones de repositorios. Debe su popularidad a
-sus funcionalidades sociales, principalmente dos: la posibilidad de
-hacer forks de otros proyectos y la posibilidad de cooperar aportando
-código para arreglar errores o mejorar el código. Si bien, no es que
-fuera una novedad, sí lo es lo fácil que resulta hacerlo. A raíz de este
-proyecto han surgido otros como _Gitorius_ o _Gitlab_, pero _Github_
-sigue siendo el más popular y el que tiene mejores y mayores
-características. algunas de estas son:
+https://github.com[Github] es lo que se denomina una forja, un
+repositorio de proyectos que usan Git como sistema de control de
+versiones. Es la forja más popular, ya que alberga millones de
+repositorios. Debe su popularidad a sus funcionalidades sociales,
+principalmente dos: la posibilidad de hacer forks de otros proyectos y
+la posibilidad de cooperar aportando código para arreglar errores o
+mejorar el código. Si bien, no es que fuera una novedad, sí lo es lo
+fácil que resulta hacerlo. A raíz de este proyecto han surgido otros
+como http://about.gitlab.com[Gitlab], pero _Github_ sigue siendo el
+más popular y el que tiene mejores y mayores características. algunas
+de estas son:
 
 * Un wiki para documentar el proyecto, que usa MarkDown como lenguaje de
 marca.
