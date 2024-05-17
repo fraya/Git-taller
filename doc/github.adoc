@@ -62,10 +62,10 @@ de configuración de usuario (_Settings_)
 
 image::github-topbar.png[Barra principal de menú]
 
-Nos vamos al menú `SSH and GPG Keys' y añadimos una nueva clave. En
-_Title_ indicamos una descripción que nos ayude a saber de dónde procede
-la clave y en key volcamos el contenido del archivo `~/.ssh/id_rsa.pub`.
-Y guardamos la clave.
+Nos vamos al menú `SSH and GPG Keys` y añadimos una nueva clave. En
+_Title_ indicamos una descripción que nos ayude a saber de dónde
+procede la clave y en key volcamos el contenido del archivo
+`~/.ssh/id_ed25519.pub`.  Y guardamos la clave.
 
 image::github-sshkeys.png[Clave SSH]
 
