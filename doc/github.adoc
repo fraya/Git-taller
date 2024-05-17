@@ -108,35 +108,12 @@ versiones distinto.
 
 image::github-quicksetup.png[Quick setup]
 
-Nuestra situación es la segunda, así que nos aseguramos de que hemos
-elegido SSH como protocolo. A continuación pulsamos el icono del
-portapapeles y ejecutamos las dos ordenes que nos indica la web en
-nuestro terminal.
-
-....
-$ git remote add origin git@github.com:sgomez/taller-de-git.git
-$ git push -u origin master
-Counting objects: 33, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (24/24), done.
-Writing objects: 100% (33/33), 3.35 KiB | 1.12 MiB/s, done.
-Total 33 (delta 2), reused 0 (delta 0)
-remote: Resolving deltas: 100% (2/2), done.
-To github.com:sgomez/taller-de-git.git
- * [new branch]      master -> master
-Branch master set up to track remote branch master from origin by rebasing.
-....
-
-Si recargamos la página veremos que ya aparece nuestro proyecto.
-
-image::github-code.png[Github: código]
-
 === Clonar un repositorio
 
-Una vez que ya tengamos sincronizado el repositorio contra Github,
-eventualmente vamos a querer descargarlo en otro de nuestros ordenadores
-para poder trabajar en él. Esta acción se denomina clonar y para ello
-usaremos la orden `git clone`.
+Una vez que tengamos el repositorio en Github, eventualmente vamos a
+querer descargarlo en otro de nuestros ordenadores para poder trabajar
+en él. Esta acción se denomina *clonar* y para ello usaremos la orden
+`git clone`.
 
 En la página principal de nuestro proyecto podemos ver un botón que
 indica `Clone or download`. Si la pulsamos nos da, de nuevo, la opción
