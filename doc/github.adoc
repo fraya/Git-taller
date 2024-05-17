@@ -81,7 +81,7 @@ para MacOSX:
 * Cliente MacOSX: http://mac.github.com/
 
 Para Linux no hay cliente propio, pero sí hay plugin para la mayoría de
-editores de texto como atom, netbeans, eclipe o los editores de
+editores de texto como atom, netbeans, eclipse o los editores de
 jetbrains.
 
 De todas maneras, estos clientes solo tienen el fin de facilitar el uso
