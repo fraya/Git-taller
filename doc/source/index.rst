@@ -6,7 +6,8 @@ Taller de Git
    :caption: Contenidos:
 
    introduccion
-
+   git-basico
+   github
 
 
 Indices and tables
