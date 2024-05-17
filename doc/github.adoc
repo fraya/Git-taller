@@ -119,10 +119,8 @@ En la página principal de nuestro proyecto podemos ver un botón que
 indica `Clone or download`. Si la pulsamos nos da, de nuevo, la opción
 de elegir entre clonar con _ssh_ o _https_. Recordad que si estáis en
 otro equipo y queréis seguir utilizando ssh deberéis generar otra para
-de claves privada/pública como hicimos en la sección de
-_link:curso-de-git/git/#tu-clave-publicaprivada[Aspectos básicos de
-Git]_ y instalarla en nuestro perfil de Github, como vimos
-anteriormente.
+de claves privada/pública como hicimos anteriormente e instalarla en
+nuestro perfil de Github.
 
 Para clonar nuestro repositorio y poder trabajar con él todo lo que
 debemos hacer es lo siguiente:
