@@ -52,6 +52,10 @@ También se recomienda configurar el siguiente parámetro:
 $ git config --global push.default simple
 ....
 
+NOTE: Esta opción hace que se sincronicen solo los cambios de la rama
+local con la rama remota que se llame igual. Todavía no hemos visto
+nada de esto, lo pones y ya está.
+
 ==== Bash Completion
 
 _Bash completion_ es una utilidad que permite a bash completar órdenes y
