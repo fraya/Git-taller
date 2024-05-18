@@ -707,4 +707,197 @@ Ahora nuestro repositorio tiene este aspecto:
 	    }
     }
 
+Diferencias entre *workdir* y *staging*
+---------------------------------------
 
+Aún hay un problema si llamamos a nuestro programa sin argumentos de
+entrada.
+
+.. code-block:: console
+   :emphasize-lines: 2
+
+   $ _build/bin/curso-de-git-app
+   ELEMENT outside of range: 0
+   Backtrace:
+     invoke-debugger:internal:dylan##1 + 0x29
+     default-handler:dylan:dylan##1 + 0x12
+     default-last-handler:common-dylan-internals:common-dylan##0 + 0x2f1
+     error:dylan:dylan##0 + 0x27
+     0x7f2fe2051a15
+     0x7f2fe2062017
+     0x7f2fe23e728f
+     0x5571c9bf1159
+     0x7f2fe1a7f14a
+     __libc_start_main + 0x8b
+     0x5571c9bf1075
+
+El programa falla porque no hay un elemento 0 en los
+argumentos. Modifiquemos la aplicación.
+
+.. code-block:: dylan
+   :caption: curso-de-git-app.dylan
+   :emphasize-lines: 5-9
+
+   Module: curso-de-git-app
+
+   define function main
+       (name :: <string>, arguments :: <vector>)
+     let mensaje = if (arguments.size < 1)
+                     "mundo"
+		   else
+		     arguments[0]
+		   end;
+     format-out("%s\n", greeting(mensaje));
+     exit-application(0);
+   end function;
+
+   // Calling our main function (which could have any name) should be the last
+   // thing we do
+   main(application-name(), application-arguments());
+
+Esta vez añadimos los cambios a la fase de *staging*, pero sin
+confirmarlos (*commit*).
+
+.. code-block:: console
+
+   $ git add curso-de-git-app.dylan
+
+Volvemos a modificar el programa para indicar con un comentario lo que
+hemos hecho:
+
+.. code-block:: dylan
+   :caption: curso-de-git-app.dylan
+   :emphasize-lines: 5
+
+   Module: curso-de-git-app
+
+   define function main
+       (name :: <string>, arguments :: <vector>)
+     // Si no hay argumentos poner mensaje por defecto
+     let mensaje = if (arguments.size < 1)
+                     "mundo"
+		   else
+		     arguments[0]
+		   end;
+     format-out("%s\n", greeting(mensaje));
+     exit-application(0);
+   end function;
+
+   // Calling our main function (which could have any name) should be the last
+   // thing we do
+   main(application-name(), application-arguments());
+
+Veamos el estado del repositorio:
+
+.. code-block:: console
+   :caption: Estado del repositorio con un fichero en *stage* y otro en *workdir*
+   :emphasize-lines: 5, 10
+
+   $ git status
+   On branch master
+   Changes to be committed:
+     (use "git restore --staged <file>..." to unstage)
+           modified:   curso-de-git-app.dylan
+
+   Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git restore <file>..." to discard changes in working directory)
+           modified:   curso-de-git-app.dylan
+
+Podemos ver como aparecen el archivo ``curso-de-git-app.dylan`` dos
+veces. El primero está preparado para ser confirmado y está almacenado
+en la zona de *staging*. El segundo indica que el archivo
+``curso-de-git-app.dylan`` está modificado otra vez en la zona de
+trabajo (*workdir*).
+
+.. warning::
+
+    Si volvieramos a hacer un ``git add curso-de-git-app.dylan``
+    sobreescribiríamos los cambios previos que había en la zona de
+    *staging*.
+
+Almacenamos los cambios por separado:
+
+.. code-block:: console
+   :caption: Añadir el parámetro por defecto
+   :emphasize-lines: 1, 5, 14, 15
+
+   $ git commit -m "Se añade un parámetro por defecto"
+   [master 47e9e6f] Se añade un parámetro por defecto
+   1 file changed, 5 insertions(+)
+
+   $ git status
+   On branch master
+   Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git restore <file>..." to discard changes in working directory)
+           modified:   curso-de-git-app.dylan
+
+   no changes added to commit (use "git add" and/or "git commit -a")
+
+   $ git add .
+   $ git status
+   On branch master
+   Changes to be committed:
+     (use "git restore --staged <file>..." to unstage)
+           modified:   curso-de-git-app.dylan
+
+
+.. graphviz::
+   :caption: Rama master tras commit ``47e9e6f``
+   :align: center
+
+   digraph G {
+	    rankdir="RL";
+	    splines=line;
+
+	    c2 -> c1 -> c0
+
+	    {
+	    rank=same;
+		node [
+		    style=filled,
+		    color=red,
+		    fillcolor=red,
+		    shape=rectangle,
+		    fontname=monospace,
+		    fontcolor=white
+		]
+
+		c2 -> "47e9e6f" [dir=back]
+		master -> c2
+	    }
+   }
+
+.. code-block:: console
+   :caption: Añadir el comentario
+
+   $ git commit -m "Añade comentario para parámetro por defecto"
+   [master 2ee18ff] Añade comentario para parámetro por defecto
+   1 file changed, 1 insertion(+)
+
+.. graphviz::
+   :caption: Rama master tras commit ``2ee18ff``
+   :align: center
+
+   digraph G {
+	    rankdir="RL";
+	    splines=line;
+
+	    c3 -> c2 -> c1 -> c0
+
+	    {
+	      rank=same;
+	      node [
+		    style=filled,
+		    color=red,
+		    fillcolor=red,
+		    shape=rectangle,
+		    fontname=monospace,
+		    fontcolor=white
+	      ]
+
+		c3 -> "2ee18ff" [dir=back]
+		master -> c3
+	    }
+   }
