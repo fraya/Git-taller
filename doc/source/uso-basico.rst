@@ -307,45 +307,33 @@ La salida del comando es la siguiente:
 Nuestro repositorio tiene el siguiente aspecto:
 
  .. graphviz::
-    :caption: Rama master
+    :caption: Rama master tras commit ``81f67ea``
     :align: center
 
     digraph G {
-	    rankdir="LR";
-	    pad=0.5;
-	    nodesep=0.6;
-	    ranksep=0.5;
-	    forcelabels=true;
-	    
-	    node [
-	        width=0.12,
-		height=0.12,
-		fixedsize=true,
-		shape=circle,
-		style=filled,
-		color="#909090",
-		fontcolor="deepskyblue",
-		font="Arial bold",
-		fontsize="14pt"
-	    ];
-	    
-	    edge [
-	        arrowhead=none,
-		color="#909090",
-		penwidth=3
-	    ];
+	    rankdir="RL";
+	    splines=line;
 
-	    node [group="master"];
-	    s1   [label="master\n\n\n", width=0.33, height=-.33, shape=box];
-	    1    [label="81f67ea\n\n\n"];
-	    e1   [label="", width=0.33, height=-.33, shape=box];
+	    c0
 
-	    s1 -> 1;
-            1  -> e1 [color="#b0b0b0", style=dashed];
+	    {
+	        rank=same;
+		node [
+		    style=filled,
+		    color=red,
+		    fillcolor=red,
+		    shape=rectangle,
+		    fontname=monospace,
+		    fontcolor=white
+		]
+		c0 -> "81f67ea" [dir=back]
+		master -> c0
+	    }
     }
+    
 
 Primer cambio
-^^^^^^^^^^^^^
+-------------
 
 Vamos a compilar el programa y ejecutar las pruebas:
 
@@ -690,5 +678,33 @@ Confirmamos los cambios
    $ git commit -m "Parametrizar el mensaje de saludo"
    [master 73c695b] Parametrizar el mensaje de saludo
    4 files changed, 8 insertions(+), 7 deletions(-)
+
+Ahora nuestro repositorio tiene este aspecto:
+
+ .. graphviz::
+    :caption: Rama master tras commit ``73c695b``
+    :align: center
+
+    digraph G {
+	    rankdir="RL";
+	    splines=line;
+
+	    c1 -> c0
+
+	    {
+	        rank=same;
+		node [
+		    style=filled,
+		    color=red,
+		    fillcolor=red,
+		    shape=rectangle,
+		    fontname=monospace,
+		    fontcolor=white
+		]
+
+		c1 -> "73c695b" [dir=back]
+		master -> c1
+	    }
+    }
 
 
