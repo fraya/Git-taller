@@ -901,3 +901,58 @@ Almacenamos los cambios por separado:
 		master -> c3
 	    }
    }
+
+Trabajando con el historial
+---------------------------
+
+Con la orden ``git log`` podemos ver todos los cambios que hemos
+hecho:
+
+.. code-block:: console
+   :caption: Salida de ``git log``
+
+   Author: Fernando Raya <fraya@ieszaidinvergeles.org>
+   Date:   Sat May 18 17:02:01 2024 +0200
+
+       Añade comentario para parámetro por defecto
+
+   commit 47e9e6f5ba7aa85e63d17c31e244f020a93ec8bb
+   Author: Fernando Raya <fraya@ieszaidinvergeles.org>
+   Date:   Sat May 18 17:00:59 2024 +0200
+
+       Se añade un parámetro por defecto
+
+   commit 73c695b8c026eb0f7c5ff3bf0ad6215dee359953
+   Author: Fernando Raya <fraya@ieszaidinvergeles.org>
+   Date:   Sat May 18 14:01:28 2024 +0200
+
+       Parametrizar el mensaje de saludo
+
+   commit 81f67ea62cc92abc6e39a9daaae9d207165def31
+   Author: Fernando Raya <fraya@ieszaidinvergeles.org>
+   Date:   Sat May 18 11:02:01 2024 +0200
+
+       Revisión inicial
+
+También es posible ver versiones abreviadas o limitadas, dependiendo
+de los parámetros:
+
+.. code-block:: console
+   :caption: Salida de ``git log --oneline``
+
+   $ git log --oneline
+   2ee18ff (HEAD -> master) Añade comentario para parámetro por defecto
+   47e9e6f Se añade un parámetro por defecto
+   73c695b Parametrizar el mensaje de saludo
+   81f67ea Revisión inicial
+
+Una versión muy útil de `git log` es la siguiente, pues nos permite
+ver en que lugares está ``master`` y ``HEAD``, entre otras cosas:
+
+.. code-block:: console
+
+   git log --pretty=format:'%h %ad | %s%d [%an]' --grap--date=short
+   * 2ee18ff 2024-05-18 | Añade comentario para parámetro por defecto (HEAD -> master) [Fernando Raya]
+   * 47e9e6f 2024-05-18 | Se añade un parámetro por defecto [Fernando Raya]
+   * 73c695b 2024-05-18 | Parametrizar el mensaje de saludo [Fernando Raya]
+   * 81f67ea 2024-05-18 | Revisión inicial [Fernando Raya]
