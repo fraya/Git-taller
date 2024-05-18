@@ -618,14 +618,14 @@ Grabamos, compilamos (ya no se muestran errores) y probamos.
    Ran 2 tests
    PASSED in 0.000075 seconds
 
- ¡Conseguido! Ahora probamos el programa:
+¡Conseguido! Ahora probamos el programa:
 
- .. code-block:: console
+.. code-block:: console
 
-    $ _build/bin/curso-de-git-app mundo
-    ¡Hola mundo!
-    $ _build/bin/curso-de-git-app Luisa
-    ¡Hola Luisa!
+   $ _build/bin/curso-de-git-app mundo
+   ¡Hola mundo!
+   $ _build/bin/curso-de-git-app Luisa
+   ¡Hola Luisa!
 
 Dan ganas de saludar a todo el mundo. Tranquila. Vamos a ver el
 repositorio.
@@ -633,11 +633,11 @@ repositorio.
 .. code-block:: console
    :emphasize-lines: 6, 7, 8, 12
 
-    $ git status
-    On branch master
-    Changes not staged for commit:
-      (use "git add <file>..." to update what will be committed)
-      (use "git restore <file>..." to discard changes in working directory)
+   $ git status
+   On branch master
+   Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git restore <file>..." to discard changes in working directory)
 	   modified:   curso-de-git-app.dylan
 	   modified:   curso-de-git.dylan
 	   modified:   tests/curso-de-git-test-suite.dylan
@@ -654,7 +654,7 @@ directorio ``_build/`` y que no tiene seguimiento.
 
 Añadimos a nuestro fichero ``.gitignore`` la línea:
 
-.. code-block:: git
+.. code-block:: console
    :emphasize-lines: 5
 
    # directorios de desarrollo
