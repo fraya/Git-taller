@@ -11,7 +11,7 @@ principalmente dos: la posibilidad de hacer forks de otros proyectos y
 la posibilidad de cooperar aportando código para arreglar errores o
 mejorar el código. Si bien, no es que fuera una novedad, sí lo es lo
 fácil que resulta hacerlo. A raíz de este proyecto han surgido otros
-como `Gitlab <http://about.gitlab.com>`__, pero *Github* sigue siendo
+como `Gitlab <https://about.gitlab.com>`__, pero *Github* sigue siendo
 el más popular y el que tiene mejores y mayores
 características. algunas de estas son:
 
@@ -342,9 +342,6 @@ archivo.
    *MarkDown*. Se trata de un lenguaje de marca que nos permite escribir
    texto enriquecido de manera muy sencilla.
 
-   Dispones de un tutorial aquí:
-   [https://www.markdowntutorial.com/](https://www.markdowntutorial.com/)
-
 Modificamos el archivo como queramos, por ejemplo, añadiendo nuestro
 nombre:
 
@@ -388,10 +385,9 @@ orden asociada es ``git fetch``:
 Ahora vemos el caso contrario, tenemos que ``origin/master`` está por
 delante que ``HEAD`` y que la rama ``master`` local.
 
-Ahora necesitamos incorporar los cambios de la rama remota en la local.
-La forma de hacerlo lo vimos en el `capítulo
-anterior </ramas/#mezclar-ramas>`__ usando ``git merge`` o
-``git rebase``.
+Ahora necesitamos incorporar los cambios de la rama remota en la
+local.  La forma de hacerlo lo vimos en el capítulo anterior mezclar
+ramas usando ``git merge`` o ``git rebase``.
 
 Habitualmente se usa ``git merge``:
 
