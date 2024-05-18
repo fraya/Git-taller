@@ -7,6 +7,7 @@ Taller de Git
 
    introduccion
    git-basico
+   uso-basico
    github
 
 
