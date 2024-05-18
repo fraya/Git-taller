@@ -47,7 +47,7 @@ Para crear una nueva clave usamos la siguiente orden:
 
 .. code-block:: console
 
-   ssh-keygen -t ed25519 -C "tu_email@example.com"
+   $ ssh-keygen -t ed25519 -C "tu_email@example.com"
 
 .. note::
 
@@ -78,7 +78,7 @@ de configuración de usuario (*Settings*)
 
    Barra principal de menú
 
-Nos vamos al menú ``SSH and GPG Keys`` y añadimos una nueva clave. En
+Nos vamos al menú *SSH and GPG Keys* y añadimos una nueva clave. En
 *Title* indicamos una descripción que nos ayude a saber de dónde procede
 la clave y en key volcamos el contenido del archivo
 ``~/.ssh/id_ed25519.pub``. Y guardamos la clave.
@@ -112,11 +112,11 @@ Crear un repositorio
 --------------------
 
 Vamos a crear un repositorio donde guardar nuestro proyecto. Para ello
-pulsamos el signo ``+`` que hay en la barra superior y seleccionamos
-``New repository``.
+pulsamos el signo *+* que hay en la barra superior y seleccionamos
+*New repository*.
 
 Ahora tenemos que designar un nombre para nuestro repositorio, por
-ejemplo: \`\ *taller-de-git*'.
+ejemplo: *taller-de-git*.
 
 .. figure:: images/github-newrepo.png
    :alt: Nuevo repositorio
