@@ -224,3 +224,122 @@ cualquier fichero terminado en ``~`` (copia de seguridad en Unix) o
 ``.bak`` (copia de seguridad en Windows) **en cualquier
 subdirectorio** (ya que no empieza la línea por ``/`` en
 ``.gitignore``).
+
+Ahora sí, añadimos la aplicación
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ya estamos preparados para añadir la aplicación. Podemos añadir los
+ficheros uno a uno, ``git add .gitignore`` por ejemplo o añadirlos
+todos a la vez, ``git add .``
+
+.. code-block:: console
+   :caption: Añadimos todos los ficheros al área de preparación o *staged*
+
+
+   $ git add .
+
+Volvemos a ver el estado del repositorio:
+
+.. code-block:: console
+   :caption: Estado tras añadir los ficheros
+   :emphasize-lines: 6, 7
+
+   $ git status
+   On branch master
+
+   No commits yet
+
+   Changes to be committed:
+     (use "git rm --cached <file>..." to unstage)
+	   new file:   .gitignore
+	   new file:   curso-de-git-app-library.dylan
+	   new file:   curso-de-git-app.dylan
+	   new file:   curso-de-git-app.lid
+	   new file:   curso-de-git.dylan
+	   new file:   curso-de-git.lid
+	   new file:   dylan-package.json
+	   new file:   library.dylan
+	   new file:   tests/curso-de-git-test-suite.dylan
+	   new file:   tests/curso-de-git-test-suite.lid
+	   new file:   tests/library.dylan
+
+Nos muestra que tenemos una lista de cambios en seguimiento preparados
+para ser confirmados (*committed*). También nos muestra que podemos
+sacarlos del área de seguimento (*unstage*) mediante el comando ``git
+rm --cached <file>...``.
+
+Primera confirmación
+^^^^^^^^^^^^^^^^^^^^
+
+No se trata de tu primera comunión ni de la confirmación de la Iglesia
+sino de aceptar los ficheros en seguimiento y guardarlos en el
+repositorio. Sin más dilación:
+
+.. code-block:: console
+
+   $ git commit -m "Revisión inicial"
+
+Confirmamos con *commit* y escribimos un mensaje de confirmación
+(``-m``) en la misma línea (más adelante veremos como hacerlo más
+correcto).
+
+La salida del comando es la siguiente:
+
+.. code-block:: console
+   :caption: Salida de la orden de confirmación
+   :emphasize-lines: 2
+
+   $ git commit -m "Revisión inicial"
+   [master (root-commit) 81f67ea] Revisión inicial
+   11 files changed, 122 insertions(+)
+   create mode 100644 .gitignore
+   create mode 100644 curso-de-git-app-library.dylan
+   create mode 100644 curso-de-git-app.dylan
+   create mode 100644 curso-de-git-app.lid
+   create mode 100644 curso-de-git.dylan
+   create mode 100644 curso-de-git.lid
+   create mode 100644 dylan-package.json
+   create mode 100644 library.dylan
+   create mode 100644 tests/curso-de-git-test-suite.dylan
+   create mode 100644 tests/curso-de-git-test-suite.lid
+   create mode 100644 tests/library.dylan
+
+Nuestro repositorio tiene el siguiente aspecto:
+
+ .. graphviz::
+    :caption: Rama master
+    :align: center
+
+    digraph G {
+	    rankdir="LR";
+	    pad=0.5;
+	    nodesep=0.6;
+	    ranksep=0.5;
+	    forcelabels=true;
+	    
+	    node [
+	        width=0.12,
+		height=0.12,
+		fixedsize=true,
+		shape=circle,
+		style=filled,
+		color="#909090",
+		fontcolor="deepskyblue",
+		font="Arial bold",
+		fontsize="14pt"
+	    ];
+	    
+	    edge [
+	        arrowhead=none,
+		color="#909090",
+		penwidth=3
+	    ];
+
+	    node [group="master"];
+	    s1   [label="master\n\n\n", width=0.33, height=-.33, shape=box];
+	    1    [label="81f67ea\n\n\n"];
+	    e1   [label="", width=0.33, height=-.33, shape=box];
+
+	    s1 -> 1;
+            1  -> e1 [color="#b0b0b0", style=dashed];
+    }
