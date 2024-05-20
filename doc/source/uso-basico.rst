@@ -956,3 +956,126 @@ ver en que lugares está ``master`` y ``HEAD``, entre otras cosas:
    * 47e9e6f 2024-05-18 | Se añade un parámetro por defecto [Fernando Raya]
    * 73c695b 2024-05-18 | Parametrizar el mensaje de saludo [Fernando Raya]
    * 81f67ea 2024-05-18 | Revisión inicial [Fernando Raya]
+
+Recuperando versiones anteriores
+--------------------------------
+
+Cada cambio es etiquetado por un hash, para poder regresar a ese
+momento del estado del proyecto se usa la orden ``git checkout``.
+
+.. code-block:: console
+
+   $ git checkout 81f67ea
+   Note: checking out '81f67ea'.
+
+   You are in 'detached HEAD' state. You can look around, make experimental
+   changes and commit them, and you can discard any commits you make in this
+   state without impacting any branches by performing another checkout.
+
+   If you want to create a new branch to retain commits you create, you may
+   do so (now or later) by using -b with the checkout command again. Example:
+
+     git checkout -b new_branch_name
+
+   HEAD is now at 81f67ea... Revisión inicial
+
+El aviso que nos sale nos indica que estamos en un estado donde no
+trabajamos en ninguna rama concreta. Eso significa que los cambios que
+hagamos podrían "perderse" porque si no son guardados en una nueva
+rama, en principio no podríamos volver a recuperarlos. Hay que pensar
+que Git es como un árbol donde un nodo tiene información de su nodo
+padre, no de sus nodos hijos, con lo que siempre necesitaríamos
+información de dónde se encuentran los nodos finales o de otra manera
+no podríamos acceder a ellos.
+
+Volver a la última versión de la rama main
+------------------------------------------
+
+Usamos ``git checkout`` indicando el nombre de la rama:
+
+.. code-block:: console
+
+   $ git checkout main
+
+   Previous HEAD position was e19f2c1... Creación del proyecto
+
+
+Etiquetando versiones
+---------------------
+
+Para poder recuperar versiones concretas en la historia del
+repositorio, podemos etiquetarlas, lo cual es más facil que usar un
+hash. Para eso usaremos la orden ``git tag``.
+
+.. code-block:: console
+
+   $ git tag v1
+
+Ahora vamos a etiquetar la versión inmediatamente anterior como
+v1-beta. Para ello podemos usar los modificadores ``^`` o ``~`` que
+nos llevarán a un ancestro determinado. Las siguientes dos órdenes son
+equivalentes:
+
+.. code-block:: console
+
+   $ git checkout v1^
+   $ git checkout v1~1
+   $ git tag v1-beta
+
+Si ejecutamos la orden sin parámetros nos mostrará todas las etiquetas
+existentes.
+
+.. code-block:: console
+
+   $ git tag
+   v1
+   v1-beta
+
+Y para verlas en el historial:
+
+.. code-block:: console
+
+   $ git hist main --all
+   * fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1, main) [Sergio Gómez]
+   * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (HEAD, tag: v1-beta) [Sergio Gómez]
+   * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
+   * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
+
+Ignorando archivos
+------------------
+
+Ya hemos visto antes que podemos ignorar ciertos ficheros para que no
+entren en nuestro repositorio.  La orden ``git add .`` o ``git add
+nombre_directorio`` es muy cómoda, ya que nos permite añadir todos los
+archivos del proyecto o todos los contenidos en un directorio y sus
+subdirectorios. Es mucho más rápido que tener que ir añadiéndolos uno
+por uno. El problema es que, si no se tiene cuidado, se puede terminar
+por añadir archivos innecesarios o con información sensible.
+
+Por lo general se debe evitar añadir archivos que se hayan generado
+como producto de la compilación del proyecto, los que generen los
+entornos de desarrollo (archivos de configuración y temporales) y
+aquellos que contentan información sensible, como contraseñas o tokens
+de autenticación. Por ejemplo, en un proyecto de C/C++, los archivos
+objeto no deben incluirse, solo los que contengan código fuente y los
+make que los generen.
+
+Para indicarle a git que debe ignorar un archivo, se puede crear un
+fichero llamado ``.gitignore``, bien en la raíz del proyecto o en los
+subdirectorios que queramos. Dicho fichero puede contener patrones,
+uno en cada línea, que especiquen qué archivos deben ignorarse. El
+formato es el siguiente:
+
+.. code-block::
+   :name: ``.gitignore``
+
+   dir1/           # ignora todo lo que contenga el directorio dir1
+   !dir1/info.txt  # El operador ! excluye del ignore a dir1/info.txt (sí se guardaría)
+   dir2/*.txt      # ignora todos los archivos txt que hay en el directorio dir2
+   dir3/**/*.txt   # ignora todos los archivos txt que hay en el dir3 y sus subdirectorios
+   *.o             # ignora todos los archivos con extensión .o en todos los directorio
+
+Cada tipo de proyecto genera sus ficheros temporales, así que para
+cada proyecto hay un ``.gitignore`` apropiado. Existen repositorios
+que ya tienen creadas plantillas. Podéis encontrar uno en
+https://github.com/github/gitignore
