@@ -28,7 +28,7 @@ este tipo de herramientas son entre otros:
 Terminología
 ============
 
-La terminología del repositorio se ha incluido en el `Glosario`_.
+La terminología del repositorio se ha incluido en el `Glosario <glosario.html>`_.
 
 Clasificación
 =============

@@ -10,7 +10,7 @@ Taller de Git
    git-basico
    uso-basico
    github
-   glossary
+   glosario
 
 
 Indices and tables
