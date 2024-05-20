@@ -127,3 +127,11 @@ Glosario
 
    **Mezclar**
       Ver :term:`Fusionar`
+
+   *Stage*
+      Staged o preparado significa que has marcado un archivo
+      modificado en su versión actual para que vaya en tu próxima
+      confirmación.
+
+   *staging*
+      Acción de pasar un archivo al :term:`stage`.
