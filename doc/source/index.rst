@@ -9,6 +9,7 @@ Taller de Git
    introduccion
    git-basico
    uso-basico
+   git-uso-avanzado
    github
    glosario
 
