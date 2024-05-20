@@ -1,7 +1,10 @@
 .. _definición_clasificación_y_funcionamiento:
 
+Control de versiones
+====================
+
 Definición, clasificación y funcionamiento
-==========================================
+------------------------------------------
 
 Se llama control de versiones a la gestión de los diversos cambios que
 se realizan sobre los elementos de algún producto o una configuración
@@ -26,12 +29,12 @@ este tipo de herramientas son entre otros:
 .. _terminología:
 
 Terminología
-============
+------------
 
-La terminología del repositorio se ha incluido en el `Glosario <glosario.html>`_.
+La terminología del repositorio se ha incluido en el Glosario.
 
 Clasificación
-=============
+-------------
 
 Podemos clasificar los sistemas de control de versiones atendiendo a la
 arquitectura utilizada para el almacenamiento del código: locales,
@@ -40,7 +43,7 @@ centralizados y distribuidos.
 .. _locales:
 
 Locales
--------
+^^^^^^^
 
 Los cambios son guardados localmente y no se comparten con nadie. Esta
 arquitectura es la antecesora de las dos siguientes.
@@ -52,7 +55,7 @@ arquitectura es la antecesora de las dos siguientes.
 .. _centralizados:
 
 Centralizados
--------------
+^^^^^^^^^^^^^
 
 Existe un repositorio centralizado de todo el código, del cual es
 responsable un único usuario (o conjunto de ellos). Se facilitan las
@@ -67,7 +70,7 @@ del responsable. Algunos ejemplos son CVS y Subversion.
 .. _distribuidos:
 
 Distribuidos
-------------
+^^^^^^^^^^^^
 
 Cada usuario tiene su propio repositorio. Los distintos repositorios
 pueden intercambiar y mezclar revisiones entre ellos. Es frecuente el
@@ -81,8 +84,7 @@ Git y Mercurial.
 
 .. _ventajas_de_sistemas_distribuidos:
 
-Ventajas de sistemas distribuidos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ventajas de sistemas distribuidos:
 
 -  No es necesario estar conectado para guardar cambios.
 
