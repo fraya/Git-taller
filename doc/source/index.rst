@@ -5,8 +5,8 @@ Taller de Git
    :maxdepth: 2
    :caption: Contenidos:
 
-   introduccion
    cvs
+   introduccion
    git-basico
    uso-basico
    github
