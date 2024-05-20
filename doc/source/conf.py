@@ -29,3 +29,9 @@ language = 'es'
 
 html_theme = 'furo'
 html_static_path = ['_static']
+
+# -- Options for copybutton --------------------------------------------------
+# https://sphinx-copybutton.readthedocs.io/en/latest/use.html
+
+# line numbers and prompt characters
+copybutton_exclude = '.linenos, .gp'
