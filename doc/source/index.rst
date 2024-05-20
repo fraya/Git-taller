@@ -6,9 +6,11 @@ Taller de Git
    :caption: Contenidos:
 
    introduccion
+   cvs
    git-basico
    uso-basico
    github
+   glossary
 
 
 Indices and tables
