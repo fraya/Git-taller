@@ -63,6 +63,7 @@ para deshacerlos:
 Comprobamos que todo está igual que antes de añadir el comentario:
 
 .. code-block:: console
+
    $ git status
    En la rama main
    nada para hacer commit, el árbol de trabajo está limpio
@@ -72,47 +73,64 @@ Comprobamos que todo está igual que antes de añadir el comentario:
 Deshaciendo cambios antes del commit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Vamos a hacer lo mismo que la vez anterior, pero esta vez sí
-añadiremos el cambio al :term:`staging` (sin hacer :term:`commit`).
+Vamos a hacer lo mismo que la vez anterior, añadiendo el comentario,
+pero esta vez sí añadiremos el cambio al :term:`staging` (sin hacer
+:term:`commit`).
 
-Así que volvemos a modificar ``hello`` igual que la anterior ocasión:
+Así que volvemos a modificar ``curso-git-app.dylan`` igual que la
+anterior ocasión:
 
 .. code-block:: dylan
 
+   Module: curso-git-app
+
+   define function main
+       (name :: <string>, arguments :: <vector>)
+     // Si no hay argumentos poner mensaje por defecto
+     // TODO: cambiar "mundo" por constante $greeting
+     let mensaje = if (arguments.size < 1)
+                     "mundo"
+		   else
+		     arguments[0]
+		   end;
+     format-out("%s\n", greeting(mensaje));
+     exit-application(0);
+   end function;
+
+   // Calling our main function (which could have any name) should be the last
+   // thing we do.
+   main(application-name(), application-arguments());
 
 Y lo añadimos al :term:`staging`
 
 .. code-block:: console
 
-   $ git add hola.php
-   $ git status
-   # On branch main
-   # Changes to be committed:
-   # (use "git reset HEAD ..." to unstage)
-   #
-   # modified: hola.php
-
-De nuevo, Git nos indica qué debemos hacer para deshacer el cambio:
+   $ git add curso-git-app.dylan
 
 .. code-block:: console
 
-   $ git reset HEAD hola.php
-   Unstaged changes after reset:
-   M hola.php
    $ git status
-   # On branch main
-   # Changes not staged for commit:
-   # (use "git add ..." to update what will be committed)
-   # (use "git checkout -- ..." to discard changes in working directory)
-   #
-   # modified: hola.php
-   #
-   no changes added to commit (use "git add" and/or "git commit -a")
-   $ git checkout hola.php
+   En la rama main
+   Cambios a ser confirmados:
+     (usa "git restore --staged <archivo>..." para sacar del área de stage)
+	   modificados:     curso-git-app.dylan
+
+De nuevo, Git nos indica qué debemos hacer para deshacer el
+cambio. Primero lo sacamos del :temp:`stage`:
+
+.. code-block:: console
+
+   $ git restore --staged curso-git-app.dylan
+
+Después restauramos la copia de trabajo:
+
+.. code-block:: console
+
+   $ git restore curso-git-app.dylan
 
 Y ya tenemos nuestro repositorio limpio otra vez. Como vemos hay que
-hacerlo en dos pasos: uno para borrar los datos del \_staging\_ y otro
-para restaurar la copia de trabajo.
+hacerlo en dos pasos: uno para borrar los datos del :term:`staging` y
+otro para restaurar la copia de trabajo.
 
 Deshaciendo commits no deseados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -123,7 +141,7 @@ Modificamos otra vez el archivo como antes:
 
 .. code-block:: dylan
 
-		
+
 Pero ahora sí hacemos commit:
 
 .. code-block:: console
