@@ -997,7 +997,7 @@ Usamos ``git checkout`` indicando el nombre de la rama:
 
    $ git checkout main
 
-   Previous HEAD position was e19f2c1... Creación del proyecto
+   Previous HEAD position was 81f67ea... Revisión inicial 
 
 
 Etiquetando versiones
