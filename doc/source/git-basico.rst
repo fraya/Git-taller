@@ -73,6 +73,23 @@ commits que envías:
    local con la rama remota que se llame igual. Todavía no hemos visto
    nada de esto, lo pones y ya está.
 
+Añadiremos también la preferencia que tengamos respecto al final de
+linea en los ficheros de texto.
+
+Para usuarios de Unix/Mac:
+
+.. code-block:: console
+
+   $ git config --global core.autocrlf input
+   $ git config --global core.safecrlf true
+
+Para usuarios de Windows:
+
+.. code-block:: console
+
+   $ git config --global core.autocrlf true
+   $ git config --global core.safecrlf true
+
 Bash completion
 ^^^^^^^^^^^^^^^
 
