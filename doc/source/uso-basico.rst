@@ -997,7 +997,7 @@ Usamos ``git checkout`` indicando el nombre de la rama:
 
    $ git checkout main
 
-   Previous HEAD position was e19f2c1... Creación del proyecto
+   Previous HEAD position was 81f67ea... Revisión inicial 
 
 
 Etiquetando versiones
@@ -1020,7 +1020,6 @@ equivalentes:
 
    $ git checkout v1^
    $ git checkout v1~1
-   $ git tag v1-beta
 
 Si ejecutamos la orden sin parámetros nos mostrará todas las etiquetas
 existentes.
@@ -1029,17 +1028,16 @@ existentes.
 
    $ git tag
    v1
-   v1-beta
 
 Y para verlas en el historial:
 
 .. code-block:: console
 
-   $ git hist main --all
-   * fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1, main) [Sergio Gómez]
-   * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (HEAD, tag: v1-beta) [Sergio Gómez]
-   * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
-   * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
+   $ git log --oneline
+   b804719 (HEAD -> main, tag: v1) Añade comentario para parámetro por defecto
+   9f41f0b Se añade un parámetro por defecto
+   cf2b658 Parametrizar el mensaje de saludo
+   56b0ec5 Revisión inicial		
 
 Ignorando archivos
 ------------------
