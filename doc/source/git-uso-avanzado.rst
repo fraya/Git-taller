@@ -13,36 +13,60 @@ pusimos:
 .. code-block:: console
 		
    $ git checkout main
-   Previous HEAD position was 3283e0d...
-   Se añade un parámetro por defecto Switched to branch 'main'
+   Ya en 'main'
 
-Modificamos `hola.php` de la siguiente manera:
+Modificamos ``curso-git-app.dylan`` de la siguiente manera:
 
 .. code-block:: dylan
+   :caption: ``curso-git-app.dylan``
+   :emphasize-lines: 6
+
+   Module: curso-git-app
+
+   define function main
+       (name :: <string>, arguments :: <vector>)
+       // Si no hay argumentos poner mensaje por defecto
+       // TODO: cambiar "mundo" por constante $greeting
+       let mensaje = if (arguments.size < 1)
+		       "mundo"
+		     else
+		       arguments[0]
+		     end;
+       format-out("%s\n", greeting(mensaje));
+       exit-application(0);
+    end function;
+
+    // Calling our main function (which could have any name) should be the last
+    // thing we do.
+    main(application-name(), application-arguments());
 
 Y comprobamos:
 
 .. code-block:: console
-		
+
    $ git status
-   # On branch main
-   # Changes not staged for commit:
-   # (use "git add <file>;..." to update what will be committed)
-   # (use "git checkout -- <file>..." to discard changes in working directory)
-   #
-   # modified: hola.php #
-  no changes added to commit (use "git add" and/or "git commit -a")
+     En la rama main
+     Cambios no rastreados para el commit:
+       (usa "git add <archivo>..." para actualizar lo que será confirmado)
+       (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
+             modificados:     curso-git-app.dylan
+
+   sin cambios agregados al commit (usa "git add" y/o "git commit -a")
 
 El mismo Git nos indica que debemos hacer para añadir los cambios o
 para deshacerlos:
 
 .. code-block:: console
 
-   $ git checkout hola.php
+   $ git restore curso-git-app.dylan
+
+Comprobamos que todo está igual que antes de añadir el comentario:
+
+.. code-block:: console
    $ git status
-   # On branch main
-   nothing to commit, working directory clean
-   $ cat hola.php
+   En la rama main
+   nada para hacer commit, el árbol de trabajo está limpio
+   $ cat curso-git-app.dylan
 
 
 Deshaciendo cambios antes del commit
