@@ -1,4 +1,7 @@
 # Control de versiones
+
+[![Build documentation](https://github.com/frayaIzv/Git-taller/actions/workflows/build-docs.yml/badge.svg)](https://github.com/frayaIzv/Git-taller/actions/workflows/build-docs.yml)
+
 Git y Github
 
 Introducción al control de versiones con Git y Github.
