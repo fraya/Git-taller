@@ -81,6 +81,8 @@ Así que volvemos a modificar ``curso-git-app.dylan`` igual que la
 anterior ocasión:
 
 .. code-block:: dylan
+   :caption: ``curso-git-app.dylan``
+   :emphasize-lines: 6
 
    Module: curso-git-app
 
