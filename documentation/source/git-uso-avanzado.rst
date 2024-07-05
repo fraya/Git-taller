@@ -118,7 +118,7 @@ Y lo añadimos al :term:`staging`
 	   modificados:     curso-git-app.dylan
 
 De nuevo, Git nos indica qué debemos hacer para deshacer el
-cambio. Primero lo sacamos del :temp:`stage`:
+cambio. Primero lo sacamos del :term:`stage`:
 
 .. code-block:: console
 
