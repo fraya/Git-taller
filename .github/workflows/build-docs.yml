@@ -1,10 +1,10 @@
 name: Build documentation
 
 on:
-  pull_request:
+  pull_reques:
     # all branches
     paths:
-      - 'doc/**'
+      - 'documentation/**'
 
   # This enables the Run Workflow button on the Actions tab.
   workflow_dispatch:
