@@ -27,18 +27,18 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: ghcr.io/fraya/dylan-docs
-          options: -v ${{ github.workspace }}/doc:/docs
+          options: -v ${{ github.workspace }}/documentation:/docs
           run: make linkcheck
 
       - name: Build docs with Furo theme
         uses: addnab/docker-run-action@v3
         with:
           image: ghcr.io/fraya/dylan-docs
-          options: -v ${{ github.workspace }}/doc:/docs
+          options: -v ${{ github.workspace }}/documentation:/docs
           run: make html
 
       - name: Upload html artifact
         uses: actions/upload-artifact@v4
         with:
           name: git-taller-doc-html
-          path: doc/build/html/
+          path: documentation/build/html/
