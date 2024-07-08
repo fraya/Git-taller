@@ -386,27 +386,39 @@ nuestro. Necesitamos traer la información desde el servidor remoto. La
 orden asociada es ``git fetch``:
 
 .. code-block:: console
+   :caption: Traemos la información del servidor remoto
 
    $ git fetch
-   $ git hist --all
-   * cbaf831 2013-06-16 | Actualizado README.md (origin/master) [Sergio Gómez]
-   * 3f5cb1c 2013-06-16 | Añadida licencia (HEAD -> master) [Sergio Gómez]
-   * 2eab8ca 2013-06-16 | Aplicando los cambios de la rama hola [Sergio Gomez]
-   *\
-   | * 9862f33 2013-06-16 | hola usa la clase HolaMundo (hola) [Sergio Gómez]
-   | * 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]
-   |/
-   * 9c85275 2013-06-16 | Programa interactivo (master) [Sergio Gómez]
-   * c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]
-   * 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]
-   * 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]
-   * fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]
-   * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]
-   * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
-   * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
 
-Ahora vemos el caso contrario, tenemos que ``origin/master`` está por
-delante que ``HEAD`` y que la rama ``master`` local.
+.. code-block:: console
+   :caption: Salida del comando *fetch*
+
+   $ git fetch
+   remote: Enumerating objects: 5, done.
+   remote: Counting objects: 100% (5/5), done.
+   remote: Compressing objects: 100% (3/3), done.
+   remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+   Unpacking objects: 100% (3/3), 1014 bytes | 507.00 KiB/s, done.
+   From github.com:fraya/curso-de-git
+      70ef551..257432b  main       -> origin/main
+
+.. code-block:: console
+   :caption: Listar historial despúes del cambio remoto
+   :emphasize-lines: 2, 3
+
+   $ git hist --all
+   * [2024-07-08] [257432b] | Update README.md {{Fernando Raya}}  (origin/main)
+   * [2024-07-08] [70ef551] | Añadida licencia {{Fernando Raya}}  (HEAD -> main)
+   * [2024-07-05] [b386fd2] | Reordenar ficheros en subdirectorios {{Fernando Raya}} 
+   * [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}} 
+   * [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)
+   * [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)
+   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}} 
+   * [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}} 
+   * [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}}
+  
+Ahora vemos el caso contrario, tenemos que ``origin/main`` está por
+delante que ``HEAD`` y que la rama ``main`` local.
 
 Ahora necesitamos incorporar los cambios de la rama remota en la
 local.  La forma de hacerlo lo vimos en el capítulo anterior mezclar
