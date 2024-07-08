@@ -442,6 +442,7 @@ Habitualmente se usa ``git merge``:
 
 .. code-block::
    :caption: Salida del historial tras *merge*
+   :emphasize-lines: 2
 	     
    $ git hist --all
    * [2024-07-08] [257432b] | Update README.md {{Fernando Raya}}  (HEAD -> main, origin/main)
