@@ -362,16 +362,19 @@ archivo.
    *MarkDown*. Se trata de un lenguaje de marca que nos permite escribir
    texto enriquecido de manera muy sencilla.
 
-Modificamos el archivo como queramos, por ejemplo, añadiendo nuestro
-nombre:
+Modificamos el archivo como queramos, por ejemplo, añadiendo el tipo
+de licencia:
 
 .. code-block:: console
+   :caption: Fichero ``README.md``
 
-   # Curso de GIT
+   # Curso de Git
 
-   Este proyecto contiene el curso de introducción a GIT
+   Estamos aprendiendo Git y Github
 
-   Desarrollado por Sergio Gómez.
+   ## Licencia
+
+   Ver fichero [LICENSE](./LICENSE)
 
 .. figure:: images/github-changes.png
    :alt: Confirmar cambios
