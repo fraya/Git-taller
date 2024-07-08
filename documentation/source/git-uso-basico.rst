@@ -911,25 +911,25 @@ hecho:
 .. code-block:: console
    :caption: Salida de ``git log``
 
-   Author: Fernando Raya <fraya@ieszaidinvergeles.org>
+   Author: Fernando Raya <f..@gmail.com>
    Date:   Sat May 18 17:02:01 2024 +0200
 
        Añade comentario para parámetro por defecto
 
    commit 47e9e6f5ba7aa85e63d17c31e244f020a93ec8bb
-   Author: Fernando Raya <fraya@ieszaidinvergeles.org>
+   Author: Fernando Raya <f..@gmail.com>
    Date:   Sat May 18 17:00:59 2024 +0200
 
        Se añade un parámetro por defecto
 
    commit 73c695b8c026eb0f7c5ff3bf0ad6215dee359953
-   Author: Fernando Raya <fraya@ieszaidinvergeles.org>
+   Author: Fernando Raya <f..@gmail.com>
    Date:   Sat May 18 14:01:28 2024 +0200
 
        Parametrizar el mensaje de saludo
 
    commit 81f67ea62cc92abc6e39a9daaae9d207165def31
-   Author: Fernando Raya <fraya@ieszaidinvergeles.org>
+   Author: Fernando Raya <f..@gmail.com>
    Date:   Sat May 18 11:02:01 2024 +0200
 
        Revisión inicial
