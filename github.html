@@ -421,7 +421,7 @@ esto:</p>
 </div>
 <p>Aparece que hay una nueva rama llamada <code class="docutils literal notranslate"><span class="pre">origin/main</span></code>. Esta rama
 indica el estado de sincronización de nuestro repositorio con un
-repositorio remoto llamado <em>origin</em>. En este caso el de <em>Github</em>.</p>
+repositorio remoto llamado <em>origin</em>, en este caso el de <em>Github</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Por norma se llama automáticamente <em>origin</em> al primer repositorio con
@@ -431,27 +431,20 @@ el que sincronizamos nuestro repositorio.</p>
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span></code>:</p>
 <div class="literal-block-wrapper docutils container" id="id20">
 <div class="code-block-caption"><span class="caption-text">git remote show origin</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>show<span class="w"> </span>origin
+<span class="go">* remote origin</span>
+<span class="go"> Fetch URL: git@github.com:fraya/curso-de-git.git</span>
+<span class="go"> Push  URL: git@github.com:fraya/curso-de-git.git</span>
+<span class="go"> HEAD branch: main</span>
+<span class="go"> Remote branch:</span>
+<span class="go">   main tracked</span>
+<span class="go"> Local branch configured for &#39;git pull&#39;:</span>
+<span class="go">   main merges with remote main</span>
+<span class="go"> Local ref configured for &#39;git push&#39;:</span>
+<span class="go">   main pushes to main (up to date)</span>
 </pre></div>
 </div>
 </div>
-<p>$ git remote show origin
-* remote origin</p>
-<blockquote>
-<div><p>Fetch URL: <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:fraya/curso-de-git.git
-Push  URL: <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:fraya/curso-de-git.git
-HEAD branch: main
-Remote branch:</p>
-<blockquote>
-<div><p>main tracked</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Local branch configured for “git pull”:</dt><dd><p>main merges with remote main</p>
-</dd>
-<dt>Local ref configured for “git push”:</dt><dd><p>main pushes to main (up to date)</p>
-</dd>
-</dl>
-</div></blockquote>
 <p>De la respuesta tenemos que fijarnos en las líneas que indican <em>fetch</em> y
 <em>push</em> puesto que son las acciones de sincronización de nuestro
 repositorio con el remoto. Mientras que <em>fetch</em> se encarga de traer los
@@ -485,56 +478,80 @@ LICENSE con el siguiente contenido:</p>
 </pre></div>
 </div>
 <p>Y añadidos y confirmamos los cambios:</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">Añadimos la licencia</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>LICENSE
-<span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Añadida licencia&quot;</span>
-<span class="go">[master 3f5cb1c] Añadida licencia</span>
-<span class="go"> 1 file changed, 21 insertions(+)</span>
-<span class="go"> create mode 100644 LICENSE</span>
-<span class="gp">$ </span>git<span class="w"> </span>hist<span class="w"> </span>--all
-<span class="go">* 3f5cb1c 2013-06-16 | Añadida licencia (HEAD -&gt; master) [Sergio Gómez]</span>
-<span class="go">* 2eab8ca 2013-06-16 | Aplicando los cambios de la rama hola (origin/master) [Sergio Gomez]</span>
-<span class="go">*\</span>
-<span class="go">| * 9862f33 2013-06-16 | hola usa la clase HolaMundo (hola) [Sergio Gómez]</span>
-<span class="go">| * 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]</span>
-<span class="go">|/</span>
-<span class="go">* 9c85275 2013-06-16 | Programa interactivo (master) [Sergio Gómez]</span>
-<span class="go">* c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]</span>
-<span class="go">* 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]</span>
-<span class="go">* 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]</span>
-<span class="go">* fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]</span>
-<span class="go">* 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]</span>
-<span class="go">* efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]</span>
-<span class="go">* e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text">Confirmamos la licencia</span><a class="headerlink" href="#id22" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Añadida licencia&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">Salida de la confirmación</span><a class="headerlink" href="#id23" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Añadida licencia&quot;</span>
+<span class="go">[main 70ef551] Añadida licencia</span>
+<span class="go">1 file changed, 21 insertions(+)</span>
+<span class="go">create mode 100644 LICENSE</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">Listado del historial</span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>hist<span class="w"> </span>--all
+<span class="hll"><span class="go">* [2024-07-08] [70ef551] | Añadida licencia {{Fernando Raya}}  (HEAD -&gt; main)</span>
+</span><span class="hll"><span class="go">* [2024-07-05] [b386fd2] | Reordenar ficheros en subdirectorios {{Fernando Raya}}  (origin/main)</span>
+</span><span class="go">* [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}}</span>
+<span class="go">* [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)</span>
+<span class="go">* [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)</span>
+<span class="go">* [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}}</span>
+<span class="go">* [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}}</span>
+<span class="go">* [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}}</span>
+</pre></div>
+</div>
+</div>
 <p>Viendo la historia podemos ver como nuestro master no está en el mismo
-punto que <code class="docutils literal notranslate"><span class="pre">origin/master</span></code>. Si vamos a la web de <em>Github</em> veremos que
+punto que <code class="docutils literal notranslate"><span class="pre">origin/main</span></code>. Si vamos a la web de <em>Github</em> veremos que
 <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> no aparece aún. Así que vamos a enviar los cambios con la
 primera de las acciones que vimos <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>master
-<span class="go">Counting objects: 3, done.</span>
-<span class="go">Delta compression using up to 4 threads.</span>
-<span class="go">Compressing objects: 100% (3/3), done.</span>
-<span class="go">Writing objects: 100% (3/3), 941 bytes | 0 bytes/s, done.</span>
-<span class="go">Total 3 (delta 0), reused 0 (delta 0)</span>
-<span class="go">To git@github.com:sgomez/taller-de-git.git</span>
-<span class="go">   2eab8ca..3f5cb1c  master -&gt; master</span>
-<span class="go">Branch master set up to track remote branch master from origin.</span>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text">git push</span><a class="headerlink" href="#id25" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"> $ </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-text">Salida del comando <em>push</em></span><a class="headerlink" href="#id26" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+<span class="go">Enumerating objects: 4, done.</span>
+<span class="go">Counting objects: 100% (4/4), done.</span>
+<span class="go">Delta compression using up to 4 threads</span>
+<span class="go">Compressing objects: 100% (3/3), done.</span>
+<span class="go">Writing objects: 100% (3/3), 902 bytes | 902.00 KiB/s, done.</span>
+<span class="go">Total 3 (delta 1), reused 0 (delta 0), pack-reused 0</span>
+<span class="go">remote: Resolving deltas: 100% (1/1), completed with 1 local object.</span>
+<span class="go">To github.com:fraya/curso-de-git.git</span>
+<span class="go">   b386fd2..70ef551  main -&gt; main</span>
+<span class="go">branch &#39;main&#39; set up to track &#39;origin/main&#39;.</span>
+</pre></div>
+</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>La orden <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> necesita dos parámetros para funcionar: el
 repositorio y la rama destino. Así que realmente lo que teníamos que
 haber escrito es:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin master
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin main
 </pre></div>
 </div>
 <p>Para ahorrar tiempo escribiendo <em>git</em> nos deja vincular nuestra rama
 local con una rama remota, de tal manera que no tengamos que estar
 siempre indicándolo. Eso es posible con el parámetro
 <code class="docutils literal notranslate"><span class="pre">--set-upstream</span></code> o <code class="docutils literal notranslate"><span class="pre">-u</span></code> en forma abreviada.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>master
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
 </pre></div>
 </div>
 <p>Si repasas las órdenes que te indicó Github que ejecutaras verás que
@@ -552,10 +569,10 @@ incorporarlos a nuestro directorio de trabajo.</p>
 web. Pulsamos sobre el archivo <code class="docutils literal notranslate"><span class="pre">README.md</span></code>. En la vista del archivo,
 veremos que aparece el icono de un lápiz. Esto nos permite editar el
 archivo.</p>
-<figure class="align-default" id="id21">
+<figure class="align-default" id="id27">
 <img alt="Editar archivo" src="_images/github-edit.png" />
 <figcaption>
-<p><span class="caption-text">Editar archivo</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Editar archivo</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -573,10 +590,10 @@ nombre:</p>
 <span class="go">Desarrollado por Sergio Gómez.</span>
 </pre></div>
 </div>
-<figure class="align-default" id="id22">
+<figure class="align-default" id="id28">
 <img alt="Confirmar cambios" src="_images/github-changes.png" />
 <figcaption>
-<p><span class="caption-text">Confirmar cambios</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Confirmar cambios</span><a class="headerlink" href="#id28" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>El cambio quedará incorporado al repositorio de Github, pero no al

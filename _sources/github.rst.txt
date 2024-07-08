@@ -186,13 +186,13 @@ esto:
    * [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}} 
    * [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)
    * [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)
-   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}} 
+   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}}
    * [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}} 
    * [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}}
-  
+
 Aparece que hay una nueva rama llamada ``origin/main``. Esta rama
 indica el estado de sincronización de nuestro repositorio con un
-repositorio remoto llamado *origin*. En este caso el de *Github*.
+repositorio remoto llamado *origin*, en este caso el de *Github*.
 
 .. note::
 
@@ -205,18 +205,18 @@ Podemos ver la configuración de este repositorio remoto con la orden
 .. code-block:: console
    :caption: git remote show origin
 
-$ git remote show origin
-* remote origin
-  Fetch URL: git@github.com:fraya/curso-de-git.git
-  Push  URL: git@github.com:fraya/curso-de-git.git
-  HEAD branch: main
-  Remote branch:
-    main tracked
-  Local branch configured for 'git pull':
-    main merges with remote main
-  Local ref configured for 'git push':
-    main pushes to main (up to date)
-    
+   $ git remote show origin
+   * remote origin
+    Fetch URL: git@github.com:fraya/curso-de-git.git
+    Push  URL: git@github.com:fraya/curso-de-git.git
+    HEAD branch: main
+    Remote branch:
+      main tracked
+    Local branch configured for 'git pull':
+      main merges with remote main
+    Local ref configured for 'git push':
+      main pushes to main (up to date)
+
 De la respuesta tenemos que fijarnos en las líneas que indican *fetch* y
 *push* puesto que son las acciones de sincronización de nuestro
 repositorio con el remoto. Mientras que *fetch* se encarga de traer los
@@ -257,44 +257,61 @@ LICENSE con el siguiente contenido:
 Y añadidos y confirmamos los cambios:
 
 .. code-block:: console
+   :caption: Añadimos la licencia
 
    $ git add LICENSE
+
+.. code-block:: console
+   :caption: Confirmamos la licencia
+
    $ git commit -m "Añadida licencia"
-   [master 3f5cb1c] Añadida licencia
-    1 file changed, 21 insertions(+)
-    create mode 100644 LICENSE
+
+.. code-block:: console
+   :caption: Salida de la confirmación
+
+   $ git commit -m "Añadida licencia"
+   [main 70ef551] Añadida licencia
+   1 file changed, 21 insertions(+)
+   create mode 100644 LICENSE
+
+.. code-block:: console
+   :caption: Listado del historial
+   :emphasize-lines: 2, 3
+
    $ git hist --all
-   * 3f5cb1c 2013-06-16 | Añadida licencia (HEAD -> master) [Sergio Gómez]
-   * 2eab8ca 2013-06-16 | Aplicando los cambios de la rama hola (origin/master) [Sergio Gomez]
-   *\
-   | * 9862f33 2013-06-16 | hola usa la clase HolaMundo (hola) [Sergio Gómez]
-   | * 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]
-   |/
-   * 9c85275 2013-06-16 | Programa interactivo (master) [Sergio Gómez]
-   * c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]
-   * 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]
-   * 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]
-   * fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]
-   * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]
-   * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
-   * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
+   * [2024-07-08] [70ef551] | Añadida licencia {{Fernando Raya}}  (HEAD -> main)
+   * [2024-07-05] [b386fd2] | Reordenar ficheros en subdirectorios {{Fernando Raya}}  (origin/main)
+   * [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}} 
+   * [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)
+   * [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)
+   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}} 
+   * [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}} 
+   * [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}}
 
 Viendo la historia podemos ver como nuestro master no está en el mismo
-punto que ``origin/master``. Si vamos a la web de *Github* veremos que
+punto que ``origin/main``. Si vamos a la web de *Github* veremos que
 ``LICENSE`` no aparece aún. Así que vamos a enviar los cambios con la
 primera de las acciones que vimos ``git push``:
 
 .. code-block:: console
+  :caption: git push
 
-   $ git push -u origin master
-   Counting objects: 3, done.
-   Delta compression using up to 4 threads.
+   $ git push -u origin main
+
+.. code-block:: console
+   :caption: Salida del comando *push*
+
+   $ git push -u origin main
+   Enumerating objects: 4, done.
+   Counting objects: 100% (4/4), done.
+   Delta compression using up to 4 threads
    Compressing objects: 100% (3/3), done.
-   Writing objects: 100% (3/3), 941 bytes | 0 bytes/s, done.
-   Total 3 (delta 0), reused 0 (delta 0)
-   To git@github.com:sgomez/taller-de-git.git
-      2eab8ca..3f5cb1c  master -> master
-   Branch master set up to track remote branch master from origin.
+   Writing objects: 100% (3/3), 902 bytes | 902.00 KiB/s, done.
+   Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+   remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+   To github.com:fraya/curso-de-git.git
+      b386fd2..70ef551  main -> main
+   branch 'main' set up to track 'origin/main'.
 
 .. note::
 
@@ -304,7 +321,7 @@ primera de las acciones que vimos ``git push``:
 
    ::
 
-      $ git push origin master
+      $ git push origin main
 
    Para ahorrar tiempo escribiendo *git* nos deja vincular nuestra rama
    local con una rama remota, de tal manera que no tengamos que estar
@@ -313,7 +330,7 @@ primera de las acciones que vimos ``git push``:
 
    .. code-block:: console
 
-      $ git push -u origin master
+      $ git push -u origin main
 
    Si repasas las órdenes que te indicó Github que ejecutaras verás que
    el parámetro ``-u`` estaba presente y por eso no ha sido necesario
