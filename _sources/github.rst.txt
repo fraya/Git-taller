@@ -455,57 +455,47 @@ Habitualmente se usa ``git merge``:
    * [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}} 
    * [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}} 
 
-Como las operaciones de traer cambios (``git fetch``) y de mezclar ramas
-(``git merge`` o ``git rebase``) están muy asociadas, *git* nos ofrece
-una posibilidad para ahorrar pasos que es la orden ``git pull`` que
-realiza las dos acciones simultáneamente.
+.. note::
+
+   Como las operaciones de traer cambios (``git fetch``) y de mezclar ramas
+   (``git merge`` o ``git rebase``) están muy asociadas, *git* nos ofrece
+   una posibilidad para ahorrar pasos que es la orden ``git pull`` que
+   realiza las dos acciones simultáneamente.
 
 Para probar, vamos a editar de nuevo el archivo README.md y añadimos
 algo más:
 
-.. code-block:: console
+.. figure:: images/github-pull-change.png
+   :caption: Cambiamos otra vez README.md
 
-   # Curso de GIT
-
-   Este proyecto contiene el curso de introducción a GIT del Aula de Software Libre.
-
-   Desarrollado por Sergio Gómez.
-
-Como mensaje del *commit*: *\`Indicado que se realiza en el ASL'*.
+.. figure:: images/github-pull-change-commit.png
+   :caption: Confirmar el cambio en README.md
 
 Y ahora probamos a actualizar con ``git pull``:
 
 .. code-block:: console
 
    $ git pull
-   remote: Counting objects: 3, done.
+
+.. code-block:: console
+   :caption: Salida del comando ``git pull``
+
+   $ git pull
+   remote: Enumerating objects: 5, done.
+   remote: Counting objects: 100% (5/5), done.
    remote: Compressing objects: 100% (3/3), done.
-   remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-   Unpacking objects: 100% (3/3), done.
-   From github.com:sgomez/taller-de-git
-      cbaf831..d8922e4  master     -> origin/master
-   First, rewinding head to replay your work on top of it...
-   Fast-forwarded master to d8922e4ffa4f87553b03e77df6196b7e496bfec4.
-   $ git hist --all
-   * d8922e4 2013-06-16 | Indicado que se realiza en el ASL (HEAD -> master, origin/master) [Sergio Gómez]
-   * cbaf831 2013-06-16 | Actualizado README.md [Sergio Gómez]
-   * 3f5cb1c 2013-06-16 | Añadida licencia [Sergio Gómez]
-   * 2eab8ca 2013-06-16 | Aplicando los cambios de la rama hola [Sergio Gomez]
-   *\
-   | * 9862f33 2013-06-16 | hola usa la clase HolaMundo (hola) [Sergio Gómez]
-   | * 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]
-   |/
-   * 9c85275 2013-06-16 | Programa interactivo (master) [Sergio Gómez]
-   * c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]
-   * 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]
-   * 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]
-   * fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]
-   * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]
-   * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
-   * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
+   remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+   Unpacking objects: 100% (3/3), 1.05 KiB | 537.00 KiB/s, done.
+   From github.com:fraya/curso-de-git
+      257432b..ae4f94d  main       -> origin/main
+   Updating 257432b..ae4f94d
+   Fast-forward
+    README.md | 4 ++++
+    1 file changed, 4 insertions(+)
+ 
 
 Vemos que los cambios se han incorporado y que las ramas remota y local
-de *master* están sincronizadas.
+de *main* están sincronizadas.
 
 .. _`_problemas_de_sincronización`:
 

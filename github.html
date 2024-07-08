@@ -675,51 +675,38 @@ ramas usando <code class="docutils literal notranslate"><span class="pre">git</s
 </pre></div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
 <p>Como las operaciones de traer cambios (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code>) y de mezclar ramas
 (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> o <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code>) están muy asociadas, <em>git</em> nos ofrece
 una posibilidad para ahorrar pasos que es la orden <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> que
 realiza las dos acciones simultáneamente.</p>
+</div>
 <p>Para probar, vamos a editar de nuevo el archivo README.md y añadimos
 algo más:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Curso<span class="w"> </span>de<span class="w"> </span>GIT
-
-<span class="go">Este proyecto contiene el curso de introducción a GIT del Aula de Software Libre.</span>
-
-<span class="go">Desarrollado por Sergio Gómez.</span>
-</pre></div>
-</div>
-<p>Como mensaje del <em>commit</em>: <em>`Indicado que se realiza en el ASL”</em>.</p>
 <p>Y ahora probamos a actualizar con <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>pull
-<span class="go">remote: Counting objects: 3, done.</span>
-<span class="go">remote: Compressing objects: 100% (3/3), done.</span>
-<span class="go">remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0</span>
-<span class="go">Unpacking objects: 100% (3/3), done.</span>
-<span class="go">From github.com:sgomez/taller-de-git</span>
-<span class="go">   cbaf831..d8922e4  master     -&gt; origin/master</span>
-<span class="go">First, rewinding head to replay your work on top of it...</span>
-<span class="go">Fast-forwarded master to d8922e4ffa4f87553b03e77df6196b7e496bfec4.</span>
-<span class="gp">$ </span>git<span class="w"> </span>hist<span class="w"> </span>--all
-<span class="go">* d8922e4 2013-06-16 | Indicado que se realiza en el ASL (HEAD -&gt; master, origin/master) [Sergio Gómez]</span>
-<span class="go">* cbaf831 2013-06-16 | Actualizado README.md [Sergio Gómez]</span>
-<span class="go">* 3f5cb1c 2013-06-16 | Añadida licencia [Sergio Gómez]</span>
-<span class="go">* 2eab8ca 2013-06-16 | Aplicando los cambios de la rama hola [Sergio Gomez]</span>
-<span class="go">*\</span>
-<span class="go">| * 9862f33 2013-06-16 | hola usa la clase HolaMundo (hola) [Sergio Gómez]</span>
-<span class="go">| * 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]</span>
-<span class="go">|/</span>
-<span class="go">* 9c85275 2013-06-16 | Programa interactivo (master) [Sergio Gómez]</span>
-<span class="go">* c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]</span>
-<span class="go">* 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]</span>
-<span class="go">* 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]</span>
-<span class="go">* fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]</span>
-<span class="go">* 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]</span>
-<span class="go">* efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]</span>
-<span class="go">* e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]</span>
 </pre></div>
 </div>
+<div class="literal-block-wrapper docutils container" id="id36">
+<div class="code-block-caption"><span class="caption-text">Salida del comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code></span><a class="headerlink" href="#id36" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>pull
+<span class="go">remote: Enumerating objects: 5, done.</span>
+<span class="go">remote: Counting objects: 100% (5/5), done.</span>
+<span class="go">remote: Compressing objects: 100% (3/3), done.</span>
+<span class="go">remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0</span>
+<span class="go">Unpacking objects: 100% (3/3), 1.05 KiB | 537.00 KiB/s, done.</span>
+<span class="go">From github.com:fraya/curso-de-git</span>
+<span class="go">   257432b..ae4f94d  main       -&gt; origin/main</span>
+<span class="go">Updating 257432b..ae4f94d</span>
+<span class="go">Fast-forward</span>
+<span class="go"> README.md | 4 ++++</span>
+<span class="go"> 1 file changed, 4 insertions(+)</span>
+</pre></div>
+</div>
+</div>
 <p>Vemos que los cambios se han incorporado y que las ramas remota y local
-de <em>master</em> están sincronizadas.</p>
+de <em>main</em> están sincronizadas.</p>
 </section>
 <section id="problemas-de-sincronizacion">
 <span id="id11"></span><h2>Problemas de sincronización<a class="headerlink" href="#problemas-de-sincronizacion" title="Link to this heading">¶</a></h2>
