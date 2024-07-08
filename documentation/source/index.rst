@@ -8,7 +8,7 @@ Taller de Git
    cvs
    introduccion
    git-basico
-   uso-basico
+   git-uso-basico
    git-uso-avanzado
    github
    glosario
