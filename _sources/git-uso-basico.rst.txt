@@ -113,7 +113,7 @@ trabajar, pero antes miremos lo que tenemos (líneas resaltadas):
 
    $ git status
 
-   On branch master
+   On branch main
 
    No commits yet
 
@@ -132,7 +132,7 @@ trabajar, pero antes miremos lo que tenemos (líneas resaltadas):
 
    nothing added to commit but untracked files present (use "git add" to track)
 
-Estamos en la rama (*branch*) *master* y no tenemos ninguna
+Estamos en la rama (*branch*) *main* y no tenemos ninguna
 confirmación (*commits*) aún. Tenemos una lista de ficheros sin
 seguimiento (*untracked*) y podemos añadirlos usando ``git add``.
 
@@ -152,7 +152,7 @@ necesitamos en nuestro repositorio.
       
    $ git status
 
-   On branch master
+   On branch main
 
    No commits yet
 
@@ -200,7 +200,7 @@ del repositorio:
    :caption: Estado del repositorio con ``.gitignore``
 
    $ git status
-   On branch master
+   On branch main
 
    No commits yet
 
@@ -245,7 +245,7 @@ Volvemos a ver el estado del repositorio:
    :emphasize-lines: 6, 7
 
    $ git status
-   On branch master
+   On branch main
 
    No commits yet
 
@@ -290,7 +290,7 @@ La salida del comando es la siguiente:
    :emphasize-lines: 2
 
    $ git commit -m "Revisión inicial"
-   [master (root-commit) 81f67ea] Revisión inicial
+   [main (root-commit) 81f67ea] Revisión inicial
    11 files changed, 122 insertions(+)
    create mode 100644 .gitignore
    create mode 100644 curso-de-git-app-library.dylan
@@ -327,7 +327,7 @@ Nuestro repositorio tiene el siguiente aspecto:
 		    fontcolor=white
 		]
 		c0 -> "81f67ea" [dir=back]
-		master -> c0
+		main -> c0
 	    }
     }
     
@@ -622,7 +622,7 @@ repositorio.
    :emphasize-lines: 6, 7, 8, 12
 
    $ git status
-   On branch master
+   On branch main
    Changes not staged for commit:
      (use "git add <file>..." to update what will be committed)
      (use "git restore <file>..." to discard changes in working directory)
@@ -663,7 +663,7 @@ cambios.
 
    $ git add .
    $ git status
-   On branch master
+   On branch main
    Changes to be committed:
      (use "git restore --staged <file>..." to unstage)
         modified:   .gitignore
@@ -682,7 +682,7 @@ Confirmamos los cambios
 Ahora nuestro repositorio tiene este aspecto:
 
  .. graphviz::
-    :caption: Rama master tras commit ``73c695b``
+    :caption: Rama main tras commit ``73c695b``
     :align: center
 
     digraph G {
@@ -703,7 +703,7 @@ Ahora nuestro repositorio tiene este aspecto:
 		]
 
 		c1 -> "73c695b" [dir=back]
-		master -> c1
+		main -> c1
 	    }
     }
 
@@ -794,7 +794,7 @@ Veamos el estado del repositorio:
    :emphasize-lines: 5, 10
 
    $ git status
-   On branch master
+   On branch main
    Changes to be committed:
      (use "git restore --staged <file>..." to unstage)
            modified:   curso-de-git-app.dylan
@@ -827,7 +827,7 @@ Almacenamos los cambios por separado:
    1 file changed, 5 insertions(+)
 
    $ git status
-   On branch master
+   On branch main
    Changes not staged for commit:
      (use "git add <file>..." to update what will be committed)
      (use "git restore <file>..." to discard changes in working directory)
@@ -837,14 +837,14 @@ Almacenamos los cambios por separado:
 
    $ git add .
    $ git status
-   On branch master
+   On branch main
    Changes to be committed:
      (use "git restore --staged <file>..." to unstage)
            modified:   curso-de-git-app.dylan
 
 
 .. graphviz::
-   :caption: Rama master tras commit ``47e9e6f``
+   :caption: Rama main tras commit ``47e9e6f``
    :align: center
 
    digraph G {
@@ -865,7 +865,7 @@ Almacenamos los cambios por separado:
 		]
 
 		c2 -> "47e9e6f" [dir=back]
-		master -> c2
+		main -> c2
 	    }
    }
 
@@ -873,11 +873,11 @@ Almacenamos los cambios por separado:
    :caption: Añadir el comentario
 
    $ git commit -m "Añade comentario para parámetro por defecto"
-   [master 2ee18ff] Añade comentario para parámetro por defecto
+   [main 2ee18ff] Añade comentario para parámetro por defecto
    1 file changed, 1 insertion(+)
 
 .. graphviz::
-   :caption: Rama master tras commit ``2ee18ff``
+   :caption: Rama main tras commit ``2ee18ff``
    :align: center
 
    digraph G {
@@ -898,7 +898,7 @@ Almacenamos los cambios por separado:
 	      ]
 
 		c3 -> "2ee18ff" [dir=back]
-		master -> c3
+		main -> c3
 	    }
    }
 
@@ -941,18 +941,18 @@ de los parámetros:
    :caption: Salida de ``git log --oneline``
 
    $ git log --oneline
-   2ee18ff (HEAD -> master) Añade comentario para parámetro por defecto
+   2ee18ff (HEAD -> main) Añade comentario para parámetro por defecto
    47e9e6f Se añade un parámetro por defecto
    73c695b Parametrizar el mensaje de saludo
    81f67ea Revisión inicial
 
 Una versión muy útil de `git log` es la siguiente, pues nos permite
-ver en que lugares está ``master`` y ``HEAD``, entre otras cosas:
+ver en que lugares está ``main`` y ``HEAD``, entre otras cosas:
 
 .. code-block:: console
 
    git log --pretty=format:'%h %ad | %s%d [%an]' --grap--date=short
-   * 2ee18ff 2024-05-18 | Añade comentario para parámetro por defecto (HEAD -> master) [Fernando Raya]
+   * 2ee18ff 2024-05-18 | Añade comentario para parámetro por defecto (HEAD -> main) [Fernando Raya]
    * 47e9e6f 2024-05-18 | Se añade un parámetro por defecto [Fernando Raya]
    * 73c695b 2024-05-18 | Parametrizar el mensaje de saludo [Fernando Raya]
    * 81f67ea 2024-05-18 | Revisión inicial [Fernando Raya]

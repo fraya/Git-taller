@@ -358,7 +358,7 @@ trabajar, pero antes miremos lo que tenemos (líneas resaltadas):</p>
 <div class="code-block-caption"><span class="caption-text">Estado de nuestro repositorio</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 
-<span class="hll"><span class="go">On branch master</span>
+<span class="hll"><span class="go">On branch main</span>
 </span>
 <span class="hll"><span class="go">No commits yet</span>
 </span>
@@ -379,7 +379,7 @@ trabajar, pero antes miremos lo que tenemos (líneas resaltadas):</p>
 </span></pre></div>
 </div>
 </div>
-<p>Estamos en la rama (<em>branch</em>) <em>master</em> y no tenemos ninguna
+<p>Estamos en la rama (<em>branch</em>) <em>main</em> y no tenemos ninguna
 confirmación (<em>commits</em>) aún. Tenemos una lista de ficheros sin
 seguimiento (<em>untracked</em>) y podemos añadirlos usando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>.</p>
 <div class="admonition warning">
@@ -394,7 +394,7 @@ necesitamos en nuestro repositorio.</p>
 <div class="code-block-caption"><span class="caption-text">Directorios que no queremos incluir en el repositorio</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 
-<span class="go">On branch master</span>
+<span class="go">On branch main</span>
 
 <span class="go">No commits yet</span>
 
@@ -441,7 +441,7 @@ del repositorio:</p>
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-text">Estado del repositorio con <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
-<span class="go">On branch master</span>
+<span class="go">On branch main</span>
 
 <span class="go">No commits yet</span>
 
@@ -483,7 +483,7 @@ todos a la vez, <code class="docutils literal notranslate"><span class="pre">git
 <div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-text">Estado tras añadir los ficheros</span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
-<span class="go">On branch master</span>
+<span class="go">On branch main</span>
 
 <span class="go">No commits yet</span>
 
@@ -523,7 +523,7 @@ correcto).</p>
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-text">Salida de la orden de confirmación</span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Revisión inicial&quot;</span>
-<span class="hll"><span class="go">[master (root-commit) 81f67ea] Revisión inicial</span>
+<span class="hll"><span class="go">[main (root-commit) 81f67ea] Revisión inicial</span>
 </span><span class="go">11 files changed, 122 insertions(+)</span>
 <span class="go">create mode 100644 .gitignore</span>
 <span class="go">create mode 100644 curso-de-git-app-library.dylan</span>
@@ -542,7 +542,7 @@ correcto).</p>
 <p>Nuestro repositorio tiene el siguiente aspecto:</p>
 <blockquote>
 <div><figure class="align-center" id="id10">
-<div class="graphviz"><img src="_images/graphviz-a88b312526bc8f34c06bc7e652f0712b533204dd.png" alt="digraph G {
+<div class="graphviz"><img src="_images/graphviz-9ac4ec02d794a5eb9d061ff3cf246e25c2b66f51.png" alt="digraph G {
         rankdir=&quot;RL&quot;;
         splines=line;
 
@@ -559,7 +559,7 @@ correcto).</p>
                 fontcolor=white
             ]
             c0 -&gt; &quot;81f67ea&quot; [dir=back]
-            master -&gt; c0
+            main -&gt; c0
         }
 }" class="graphviz" /></div>
 <figcaption>
@@ -812,7 +812,7 @@ al programa ejecutable (<code class="docutils literal notranslate"><span class="
 <p>Dan ganas de saludar a todo el mundo. Tranquila. Vamos a ver el
 repositorio.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
-<span class="go">On branch master</span>
+<span class="go">On branch main</span>
 <span class="go">Changes not staged for commit:</span>
 <span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
 <span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
@@ -847,7 +847,7 @@ directorio <code class="docutils literal notranslate"><span class="pre">_build/<
 cambios.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>.
 <span class="gp">$ </span>git<span class="w"> </span>status
-<span class="go">On branch master</span>
+<span class="go">On branch main</span>
 <span class="go">Changes to be committed:</span>
 <span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
 <span class="go">     modified:   .gitignore</span>
@@ -865,7 +865,7 @@ cambios.</p>
 <p>Ahora nuestro repositorio tiene este aspecto:</p>
 <blockquote>
 <div><figure class="align-center" id="id15">
-<div class="graphviz"><img src="_images/graphviz-470219bceb5b84cb1839a97fc923f1a90340ba0a.png" alt="digraph G {
+<div class="graphviz"><img src="_images/graphviz-06cd4efb4bdfdf02516e426763ef776335db432d.png" alt="digraph G {
         rankdir=&quot;RL&quot;;
         splines=line;
 
@@ -883,11 +883,11 @@ cambios.</p>
             ]
 
             c1 -&gt; &quot;73c695b&quot; [dir=back]
-            master -&gt; c1
+            main -&gt; c1
         }
 }" class="graphviz" /></div>
 <figcaption>
-<p><span class="caption-text">Rama master tras commit <code class="docutils literal notranslate"><span class="pre">73c695b</span></code></span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Rama main tras commit <code class="docutils literal notranslate"><span class="pre">73c695b</span></code></span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -968,7 +968,7 @@ hemos hecho:</p>
 <div class="literal-block-wrapper docutils container" id="id18">
 <div class="code-block-caption"><span class="caption-text">Estado del repositorio con un fichero en <em>stage</em> y otro en <em>workdir</em></span><a class="headerlink" href="#id18" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
-<span class="go">On branch master</span>
+<span class="go">On branch main</span>
 <span class="go">Changes to be committed:</span>
 <span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
 <span class="hll"><span class="go">        modified:   curso-de-git-app.dylan</span>
@@ -999,7 +999,7 @@ sobreescribiríamos los cambios previos que había en la zona de
 <span class="go">1 file changed, 5 insertions(+)</span>
 
 <span class="hll"><span class="gp">$ </span>git<span class="w"> </span>status
-</span><span class="go">On branch master</span>
+</span><span class="go">On branch main</span>
 <span class="go">Changes not staged for commit:</span>
 <span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
 <span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
@@ -1009,7 +1009,7 @@ sobreescribiríamos los cambios previos que había en la zona de
 
 <span class="hll"><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>.
 </span><span class="hll"><span class="gp">$ </span>git<span class="w"> </span>status
-</span><span class="go">On branch master</span>
+</span><span class="go">On branch main</span>
 <span class="go">Changes to be committed:</span>
 <span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
 <span class="go">        modified:   curso-de-git-app.dylan</span>
@@ -1017,7 +1017,7 @@ sobreescribiríamos los cambios previos que había en la zona de
 </div>
 </div>
 <figure class="align-center" id="id20">
-<div class="graphviz"><img src="_images/graphviz-c402fa8bc0201de56cc796d486bf8af55e5fcdca.png" alt="digraph G {
+<div class="graphviz"><img src="_images/graphviz-a548b6f10378771924ff39967b0457ed045e0014.png" alt="digraph G {
          rankdir=&quot;RL&quot;;
          splines=line;
 
@@ -1035,23 +1035,23 @@ sobreescribiríamos los cambios previos que había en la zona de
              ]
 
              c2 -&gt; &quot;47e9e6f&quot; [dir=back]
-             master -&gt; c2
+             main -&gt; c2
          }
 }" class="graphviz" /></div>
 <figcaption>
-<p><span class="caption-text">Rama master tras commit <code class="docutils literal notranslate"><span class="pre">47e9e6f</span></code></span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Rama main tras commit <code class="docutils literal notranslate"><span class="pre">47e9e6f</span></code></span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="literal-block-wrapper docutils container" id="id21">
 <div class="code-block-caption"><span class="caption-text">Añadir el comentario</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Añade comentario para parámetro por defecto&quot;</span>
-<span class="go">[master 2ee18ff] Añade comentario para parámetro por defecto</span>
+<span class="go">[main 2ee18ff] Añade comentario para parámetro por defecto</span>
 <span class="go">1 file changed, 1 insertion(+)</span>
 </pre></div>
 </div>
 </div>
 <figure class="align-center" id="id22">
-<div class="graphviz"><img src="_images/graphviz-279bdf7c718b68b2640f5bcc936efe68fcf4bc58.png" alt="digraph G {
+<div class="graphviz"><img src="_images/graphviz-0577e85dbb3aa8b895fad2a398b245be5de9f09c.png" alt="digraph G {
          rankdir=&quot;RL&quot;;
          splines=line;
 
@@ -1069,11 +1069,11 @@ sobreescribiríamos los cambios previos que había en la zona de
            ]
 
              c3 -&gt; &quot;2ee18ff&quot; [dir=back]
-             master -&gt; c3
+             main -&gt; c3
          }
 }" class="graphviz" /></div>
 <figcaption>
-<p><span class="caption-text">Rama master tras commit <code class="docutils literal notranslate"><span class="pre">2ee18ff</span></code></span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Rama main tras commit <code class="docutils literal notranslate"><span class="pre">2ee18ff</span></code></span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1113,7 +1113,7 @@ de los parámetros:</p>
 <div class="literal-block-wrapper docutils container" id="id24">
 <div class="code-block-caption"><span class="caption-text">Salida de <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code></span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>log<span class="w"> </span>--oneline
-<span class="go">2ee18ff (HEAD -&gt; master) Añade comentario para parámetro por defecto</span>
+<span class="go">2ee18ff (HEAD -&gt; main) Añade comentario para parámetro por defecto</span>
 <span class="go">47e9e6f Se añade un parámetro por defecto</span>
 <span class="go">73c695b Parametrizar el mensaje de saludo</span>
 <span class="go">81f67ea Revisión inicial</span>
@@ -1121,9 +1121,9 @@ de los parámetros:</p>
 </div>
 </div>
 <p>Una versión muy útil de <cite>git log</cite> es la siguiente, pues nos permite
-ver en que lugares está <code class="docutils literal notranslate"><span class="pre">master</span></code> y <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>, entre otras cosas:</p>
+ver en que lugares está <code class="docutils literal notranslate"><span class="pre">main</span></code> y <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>, entre otras cosas:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git log --pretty=format:&#39;%h %ad | %s%d [%an]&#39; --grap--date=short</span>
-<span class="go">* 2ee18ff 2024-05-18 | Añade comentario para parámetro por defecto (HEAD -&gt; master) [Fernando Raya]</span>
+<span class="go">* 2ee18ff 2024-05-18 | Añade comentario para parámetro por defecto (HEAD -&gt; main) [Fernando Raya]</span>
 <span class="go">* 47e9e6f 2024-05-18 | Se añade un parámetro por defecto [Fernando Raya]</span>
 <span class="go">* 73c695b 2024-05-18 | Parametrizar el mensaje de saludo [Fernando Raya]</span>
 <span class="go">* 81f67ea 2024-05-18 | Revisión inicial [Fernando Raya]</span>
