@@ -712,109 +712,160 @@ de <em>main</em> están sincronizadas.</p>
 <span id="id11"></span><h2>Problemas de sincronización<a class="headerlink" href="#problemas-de-sincronizacion" title="Link to this heading">¶</a></h2>
 <section id="no-puedo-hacer-push">
 <span id="id12"></span><h3>No puedo hacer push<a class="headerlink" href="#no-puedo-hacer-push" title="Link to this heading">¶</a></h3>
-<p>Al intentar subir cambios nos podemos encontrar un mensaje como este:</p>
+<p>A veces, al intentar subir cambios nos podemos realizarlo y
+encontramos un mensaje como este:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>push
-<span class="go">git push</span>
-<span class="go">To git@github.com:sgomez/taller-de-git.git</span>
-<span class="go"> ! [rejected]        master -&gt; master (fetch first)</span>
-<span class="go">error: failed to push some refs to &#39;git@github.com:sgomez/taller-de-git.git&#39;</span>
-<span class="go">hint: Updates were rejected because the remote contains work that you do</span>
-<span class="go">hint: not have locally. This is usually caused by another repository pushing</span>
-<span class="go">hint: to the same ref. You may want to first integrate the remote changes</span>
-<span class="go">hint: (e.g., &#39;git pull ...&#39;) before pushing again.</span>
+<span class="go">To github.com:fraya/curso-de-git.git</span>
+<span class="go"> ! [rejected]        main -&gt; main (non-fast-forward)</span>
+<span class="go">error: failed to push some refs to &#39;github.com:fraya/curso-de-git.git&#39;</span>
+<span class="go">hint: Updates were rejected because the tip of your current branch is behind</span>
+<span class="go">hint: its remote counterpart. Integrate the remote changes (e.g.</span>
+<span class="go">hint: &#39;git pull ...&#39;) before pushing again.</span>
 <span class="go">hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.</span>
 </pre></div>
 </div>
-<p>La causa es que el repositorio remoto también se ha actualizado y
-nosotros aún no hemos recibido esos cambios. Es decir, ambos
-repositorios se han actualizado y el remoto tiene preferencia. Hay un
-conflicto en ciernes y se debe resolver localmente antes de continuar.</p>
+<p>La causa es que hemos modificado el repositorio local y el repositorio
+remoto también se ha actualizado pero nosotros aún no hemos recibido
+esos cambios. Es decir, ambos repositorios se han actualizado y el
+remoto tiene preferencia. Hay un conflicto en ciernes y se debe
+resolver localmente antes de continuar.</p>
 <p>Vamos a provocar una situación donde podamos ver esto en acción. Vamos a
 modificar el archivo <code class="docutils literal notranslate"><span class="pre">README.md</span></code> tanto en local como en remoto a
 través del interfaz web.</p>
-<p>En el web vamos a cambiar el título para que aparezca de la siguiente
+<p>En la web vamos a cambiar el fichero <code class="docutils literal notranslate"><span class="pre">README.md</span></code>. Cambiaremos el
+título y añadiremos la versión para que aparezca de la siguiente manera.</p>
+<div class="literal-block-wrapper docutils container" id="id37">
+<div class="code-block-caption"><span class="caption-text">Fichero <code class="docutils literal notranslate"><span class="pre">README.md</span></code> en GitHub</span><a class="headerlink" href="#id37" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Curso<span class="w"> </span>de<span class="w"> </span>GIT
+<span class="go">v0.1</span>
+</pre></div>
+</div>
+</div>
+<p>Haz un <a class="reference internal" href="glosario.html#term-Commit"><span class="xref std std-term">commit</span></a> en Github.</p>
+<p>En local vamos a cambiar la versión para que aparezca de la siguiente
 manera.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Curso de GIT, 2020</span>
+<div class="literal-block-wrapper docutils container" id="id38">
+<div class="code-block-caption"><span class="caption-text">Fichero <code class="docutils literal notranslate"><span class="pre">README.md</span></code> en local</span><a class="headerlink" href="#id38" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Curso<span class="w"> </span>de<span class="w"> </span>GIT
+<span class="go">v0.1.0</span>
 </pre></div>
 </div>
-<p>En local vamos a cambiar el título para que aparezca de la siguiente
-manera.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Curso de GIT, febrero</span>
+</div>
+<p>Realiza un <a class="reference internal" href="glosario.html#term-Commit"><span class="xref std std-term">commit</span></a> para guardar el cambio en local.</p>
+<div class="literal-block-wrapper docutils container" id="id39">
+<div class="code-block-caption"><span class="caption-text">Confirmar cambio a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> en local</span><a class="headerlink" href="#id39" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">&quot;Add version v0.1.0&quot;</span>
 </pre></div>
 </div>
-<p>!!! question</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Haz</span> <span class="n">el</span> <span class="n">commit</span> <span class="n">para</span> <span class="n">guardar</span> <span class="n">el</span> <span class="n">cambio</span> <span class="n">en</span> <span class="n">local</span><span class="o">.</span>
+</div>
+<div class="literal-block-wrapper docutils container" id="id40">
+<div class="code-block-caption"><span class="caption-text">Salida del comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code></span><a class="headerlink" href="#id40" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">&quot;Add version v0.1.0&quot;</span>
+<span class="go">[main 1e8c0b7] Añadido el mes al README</span>
+<span class="go">1 file changed, 1 insertion(+), 1 deletion(-)</span>
 </pre></div>
 </div>
-<p>??? example ``Respuesta al ejercicio anterior””</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Añadimos el fichero actualizado:
-
-    $ git commit -am &quot;Añadido el mes al README&quot;
-    [master 1e8c0b7] Añadido el mes al README
-    1 file changed, 1 insertion(+), 1 deletion(-)
-</pre></div>
 </div>
-<p>La forma de proceder en este caso es hacer un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> y un <code class="docutils literal notranslate"><span class="pre">git</span>
+<p>Al intentar <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> en local, encontramos un conflicto.  La forma
+de proceder en este caso, es hacer un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> y un <code class="docutils literal notranslate"><span class="pre">git</span>
 <span class="pre">rebase</span></code>. Si hay conflictos deberán resolverse. Cuando esté todo
 solucionado ya podremos hacer <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Por defecto <cite>git pull</cite> lo que hace es un <cite>git merge</cite>, si queremos
-hacer <cite>git rebase</cite> deberemos especificarlos con el parámetro <cite>-r</cite>:</p>
+<p>Por defecto <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> lo que hace es un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>, si queremos
+hacer <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> deberemos especificarlos con el parámetro <code class="docutils literal notranslate"><span class="pre">-r</span></code>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>pull<span class="w"> </span>--rebase
 </pre></div>
 </div>
 </div>
-<p>Vamos a hacer el pull con rebase y ver qué sucede.</p>
+<p>Vamos a hacer el <span class="xref std std-term">pull</span> con rebase y ver qué sucede.</p>
+<div class="literal-block-wrapper docutils container" id="id41">
+<div class="code-block-caption"><span class="caption-text">Comando para descargar los cambios y fusionar cambiando de base</span><a class="headerlink" href="#id41" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>pull<span class="w"> </span>--rebase
-<span class="go">First, rewinding head to replay your work on top of it...</span>
-<span class="go">Applying: Añadido el mes al README</span>
-<span class="go">Using index info to reconstruct a base tree...</span>
-<span class="go">M   README.md</span>
-<span class="go">Falling back to patching base and 3-way merge...</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id42">
+<div class="code-block-caption"><span class="caption-text">Salida del comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">--rebase</span></code></span><a class="headerlink" href="#id42" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>pull<span class="w"> </span>--rebase
 <span class="go">Auto-merging README.md</span>
 <span class="go">CONFLICT (content): Merge conflict in README.md</span>
-<span class="go">error: Failed to merge in the changes.</span>
-<span class="go">Patch failed at 0001 Añadido el mes al README</span>
-<span class="go">hint: Use &#39;git am --show-current-patch&#39; to see the failed patch</span>
-
-<span class="go">Resolve all conflicts manually, mark them as resolved with</span>
-<span class="go">&quot;git add/rm &lt;conflicted_files&gt;&quot;, then run &quot;git rebase --continue&quot;.</span>
-<span class="go">You can instead skip this commit: run &quot;git rebase --skip&quot;.</span>
-<span class="go">To abort and get back to the state before &quot;git rebase&quot;, run &quot;git rebase --abort&quot;.</span>
+<span class="go">error: could not apply 84cc97b... Add version v0.1.0</span>
+<span class="go">hint: Resolve all conflicts manually, mark them as resolved with</span>
+<span class="go">hint: &quot;git add/rm &lt;conflicted_files&gt;&quot;, then run &quot;git rebase --continue&quot;.</span>
+<span class="go">hint: You can instead skip this commit: run &quot;git rebase --skip&quot;.</span>
+<span class="go">hint: To abort and get back to the state before &quot;git rebase&quot;, run &quot;git rebase --abort&quot;.</span>
+<span class="go">Could not apply 84cc97b... Add version v0.1.0</span>
 </pre></div>
+</div>
 </div>
 <p>Evidentemente hay un conflicto porque hemos tocado el mismo archivo. Se
 deja como ejercicio resolverlo.</p>
-<p>??? example ``Respuesta al ejercicio anterior””</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>El contenido del fichero final podría ser:
+<p>Si editamos el fichero <code class="docutils literal notranslate"><span class="pre">README.md</span></code> local tenemos:</p>
+<div class="literal-block-wrapper docutils container" id="id43">
+<div class="code-block-caption"><span class="caption-text">Fichero <code class="docutils literal notranslate"><span class="pre">README.md</span></code> en local</span><a class="headerlink" href="#id43" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Curso<span class="w"> </span>de<span class="w"> </span>Git
+<span class="hll"><span class="go">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
+</span><span class="hll"><span class="go">v0.1</span>
+</span><span class="hll"><span class="go">=======</span>
+</span><span class="hll"><span class="go">v0.1.1</span>
+</span><span class="hll"><span class="go">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 84cc97b (Add version v0.1.1)</span>
+</span>
+<span class="go">Estamos aprendiendo Git y Github</span>
 
-    Curso de GIT, febrero, 2020
+<span class="gp">#</span><span class="c1"># Colaboradores</span>
 
-A continuación confirmamos los cambios y los enviamos al servidor
+<span class="go">- Fernando Raya &lt;f...@gmail.com&gt;</span>
 
-    $ git add README.md
-    $ git rebase --continue
-    $ git push
+<span class="gp">#</span><span class="c1"># Licencia</span>
+
+<span class="go">Ver fichero [LICENSE](./LICENSE)</span>
+</pre></div>
+</div>
+</div>
+<p>En las líneas resaltadas podemos ver la diferencia que hay entre la
+versión remota con la versión local marcada por los caracteres <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>.</p>
+<p>El contenido final del fichero podría ser el siguiente:</p>
+<div class="literal-block-wrapper docutils container" id="id44">
+<div class="code-block-caption"><span class="caption-text">Fichero <code class="docutils literal notranslate"><span class="pre">README.md</span></code></span><a class="headerlink" href="#id44" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Curso<span class="w"> </span>de<span class="w"> </span>Git
+<span class="go">v0.1.1</span>
+
+<span class="go">Estamos aprendiendo Git y Github</span>
+
+<span class="gp">#</span><span class="c1"># Colaboradores</span>
+
+<span class="go">- Fernando Raya &lt;f...@gmail.com&gt;</span>
+
+<span class="gp">#</span><span class="c1"># Licencia</span>
+
+<span class="go">Ver fichero [LICENSE](./LICENSE)</span>
+</pre></div>
+</div>
+</div>
+<p>A continuación confirmamos los cambios y los enviamos al servidor</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>README.md
+<span class="gp">$ </span>git<span class="w"> </span>rebase<span class="w"> </span>--continue
+<span class="gp">$ </span>git<span class="w"> </span>push
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
-<p>¿Por qué hemos hecho rebase en master si a lo largo del curso hemos
-dicho que no se debe cambiar la linea principal?</p>
+<p>¿Por qué hemos hecho rebase en <em>main</em> si a lo largo del curso hemos
+dicho que no se debe cambiar la línea principal?</p>
 <p>Básicamente hemos dicho que lo que no debemos hacer es modificar la
 línea temporal <strong>compartida</strong>. En este caso nuestros cambios en
-<em>master</em> solo estaban en nuestro repositorio, porque al fallar el
+<em>main</em> solo estaban en nuestro repositorio, porque al fallar el
 envío nadie más ha visto nuestras actualizaciones. Al hacer
 <em>rebase</em> estamos deshaciendo nuestros cambios, bajarnos la última
-actualización compartida de <em>master</em> y volviéndolos a aplicar. Con
+actualización compartida de <em>main</em> y volviéndolos a aplicar. Con
 lo que realmente la historia compartida no se ha modificado.</p>
 </div>
 <p>Este es un problema que debemos evitar en la medida de lo posible. La
 menor cantidad de gente posible debe tener acceso de escritura en
-master y las actualizaciones de dicha rama deben hacerse a través de
-ramas secundarias y haciendo merge en master como hemos visto en el
-capítulo de ramas.</p>
+<em>main</em> y las actualizaciones de dicha rama deben hacerse a través de
+ramas secundarias y haciendo <a class="reference internal" href="glosario.html#term-Merge"><span class="xref std std-term">merge</span></a> en <em>main</em> como hemos visto
+en el capítulo de ramas.</p>
 </section>
 <section id="no-puedo-hacer-pull">
 <span id="id13"></span><h3>No puedo hacer pull<a class="headerlink" href="#no-puedo-hacer-pull" title="Link to this heading">¶</a></h3>

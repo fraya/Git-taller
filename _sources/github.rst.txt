@@ -413,10 +413,10 @@ orden asociada es ``git fetch``:
    * [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}} 
    * [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)
    * [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)
-   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}} 
+   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}}
    * [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}} 
    * [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}}
-  
+
 Ahora vemos el caso contrario, tenemos que ``origin/main`` está por
 delante que ``HEAD`` y que la rama ``main`` local.
 
@@ -443,17 +443,17 @@ Habitualmente se usa ``git merge``:
 .. code-block::
    :caption: Salida del historial tras *merge*
    :emphasize-lines: 2
-	     
+
    $ git hist --all
    * [2024-07-08] [257432b] | Update README.md {{Fernando Raya}}  (HEAD -> main, origin/main)
-   * [2024-07-08] [70ef551] | Añadida licencia {{Fernando Raya}} 
+   * [2024-07-08] [70ef551] | Añadida licencia {{Fernando Raya}}
    * [2024-07-05] [b386fd2] | Reordenar ficheros en subdirectorios {{Fernando Raya}} 
    * [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}} 
    * [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)
    * [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)
-   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}} 
+   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}}
    * [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}} 
-   * [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}} 
+   * [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}}
 
 .. note::
 
@@ -492,7 +492,7 @@ Y ahora probamos a actualizar con ``git pull``:
    Fast-forward
     README.md | 4 ++++
     1 file changed, 4 insertions(+)
- 
+
 
 Vemos que los cambios se han incorporado y que las ramas remota y local
 de *main* están sincronizadas.
@@ -507,129 +507,172 @@ Problemas de sincronización
 No puedo hacer push
 ~~~~~~~~~~~~~~~~~~~
 
-Al intentar subir cambios nos podemos encontrar un mensaje como este:
+A veces, al intentar subir cambios nos podemos realizarlo y
+encontramos un mensaje como este:
 
 .. code-block:: console
 
    $ git push
-   git push
-   To git@github.com:sgomez/taller-de-git.git
-    ! [rejected]        master -> master (fetch first)
-   error: failed to push some refs to 'git@github.com:sgomez/taller-de-git.git'
-   hint: Updates were rejected because the remote contains work that you do
-   hint: not have locally. This is usually caused by another repository pushing
-   hint: to the same ref. You may want to first integrate the remote changes
-   hint: (e.g., 'git pull ...') before pushing again.
+   To github.com:fraya/curso-de-git.git
+    ! [rejected]        main -> main (non-fast-forward)
+   error: failed to push some refs to 'github.com:fraya/curso-de-git.git'
+   hint: Updates were rejected because the tip of your current branch is behind
+   hint: its remote counterpart. Integrate the remote changes (e.g.
+   hint: 'git pull ...') before pushing again.
    hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
-La causa es que el repositorio remoto también se ha actualizado y
-nosotros aún no hemos recibido esos cambios. Es decir, ambos
-repositorios se han actualizado y el remoto tiene preferencia. Hay un
-conflicto en ciernes y se debe resolver localmente antes de continuar.
+La causa es que hemos modificado el repositorio local y el repositorio
+remoto también se ha actualizado pero nosotros aún no hemos recibido
+esos cambios. Es decir, ambos repositorios se han actualizado y el
+remoto tiene preferencia. Hay un conflicto en ciernes y se debe
+resolver localmente antes de continuar.
 
 Vamos a provocar una situación donde podamos ver esto en acción. Vamos a
 modificar el archivo ``README.md`` tanto en local como en remoto a
 través del interfaz web.
 
-En el web vamos a cambiar el título para que aparezca de la siguiente
+En la web vamos a cambiar el fichero ``README.md``. Cambiaremos el
+título y añadiremos la versión para que aparezca de la siguiente manera.
+
+.. code-block:: console
+   :caption: Fichero ``README.md`` en GitHub
+
+   # Curso de GIT
+   v0.1
+
+Haz un :term:`commit` en Github.
+
+En local vamos a cambiar la versión para que aparezca de la siguiente
 manera.
 
 .. code-block:: console
+   :caption: Fichero ``README.md`` en local
 
-   Curso de GIT, 2020
-
-En local vamos a cambiar el título para que aparezca de la siguiente
-manera.
+   # Curso de GIT
+   v0.1.0
+   
+Realiza un :term:`commit` para guardar el cambio en local.
 
 .. code-block:: console
+   :caption: Confirmar cambio a ``README.md`` en local
 
-   Curso de GIT, febrero
+   $ git commit -am "Add version v0.1.0"
 
-!!! question
+.. code-block:: console
+   :caption: Salida del comando ``git commit``
 
-::
+   $ git commit -am "Add version v0.1.0"
+   [main 1e8c0b7] Añadido el mes al README
+   1 file changed, 1 insertion(+), 1 deletion(-)
 
-   Haz el commit para guardar el cambio en local.
-
-??? example \``Respuesta al ejercicio anterior''
-
-::
-
-   Añadimos el fichero actualizado:
-
-       $ git commit -am "Añadido el mes al README"
-       [master 1e8c0b7] Añadido el mes al README
-       1 file changed, 1 insertion(+), 1 deletion(-)
-
-La forma de proceder en este caso es hacer un ``git fetch`` y un ``git
+Al intentar ``git pull`` en local, encontramos un conflicto.  La forma
+de proceder en este caso, es hacer un ``git fetch`` y un ``git
 rebase``. Si hay conflictos deberán resolverse. Cuando esté todo
 solucionado ya podremos hacer ``git push``.
 
 .. note::
 
-   Por defecto `git pull` lo que hace es un `git merge`, si queremos
-   hacer `git rebase` deberemos especificarlos con el parámetro `-r`:
+   Por defecto ``git pull`` lo que hace es un ``git merge``, si queremos
+   hacer ``git rebase`` deberemos especificarlos con el parámetro ``-r``:
 
    .. code-block:: console
-		   
+
        $ git pull --rebase
 
-Vamos a hacer el pull con rebase y ver qué sucede.
+Vamos a hacer el :term:`pull` con rebase y ver qué sucede.
 
 .. code-block:: console
+   :caption: Comando para descargar los cambios y fusionar cambiando de base
 
    $ git pull --rebase
-   First, rewinding head to replay your work on top of it...
-   Applying: Añadido el mes al README
-   Using index info to reconstruct a base tree...
-   M   README.md
-   Falling back to patching base and 3-way merge...
+
+.. code-block:: console
+   :caption: Salida del comando ``git pull --rebase``
+
+   $ git pull --rebase
    Auto-merging README.md
    CONFLICT (content): Merge conflict in README.md
-   error: Failed to merge in the changes.
-   Patch failed at 0001 Añadido el mes al README
-   hint: Use 'git am --show-current-patch' to see the failed patch
-
-   Resolve all conflicts manually, mark them as resolved with
-   "git add/rm <conflicted_files>", then run "git rebase --continue".
-   You can instead skip this commit: run "git rebase --skip".
-   To abort and get back to the state before "git rebase", run "git rebase --abort".
+   error: could not apply 84cc97b... Add version v0.1.0
+   hint: Resolve all conflicts manually, mark them as resolved with
+   hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+   hint: You can instead skip this commit: run "git rebase --skip".
+   hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+   Could not apply 84cc97b... Add version v0.1.0
 
 Evidentemente hay un conflicto porque hemos tocado el mismo archivo. Se
 deja como ejercicio resolverlo.
 
-??? example \``Respuesta al ejercicio anterior''
+Si editamos el fichero ``README.md`` local tenemos:
 
-::
+.. code-block:: console
+   :caption: Fichero ``README.md`` en local
+   :emphasize-lines: 2-6
 
-   El contenido del fichero final podría ser:
+   # Curso de Git
+   <<<<<<< HEAD
+   v0.1
+   =======
+   v0.1.1
+   >>>>>>> 84cc97b (Add version v0.1.1)
 
-       Curso de GIT, febrero, 2020
+   Estamos aprendiendo Git y Github
 
-   A continuación confirmamos los cambios y los enviamos al servidor
+   ## Colaboradores
 
-       $ git add README.md
-       $ git rebase --continue
-       $ git push
+   - Fernando Raya <f...@gmail.com>
+
+   ## Licencia
+
+   Ver fichero [LICENSE](./LICENSE)
+
+En las líneas resaltadas podemos ver la diferencia que hay entre la
+versión remota con la versión local marcada por los caracteres ``>>>``.
+
+El contenido final del fichero podría ser el siguiente:
+
+.. code-block:: console
+   :caption: Fichero ``README.md``
+	     
+   # Curso de Git
+   v0.1.1
+
+   Estamos aprendiendo Git y Github
+
+   ## Colaboradores
+
+   - Fernando Raya <f...@gmail.com>
+
+   ## Licencia
+
+   Ver fichero [LICENSE](./LICENSE)
+
+   
+A continuación confirmamos los cambios y los enviamos al servidor
+
+.. code-block:: console
+		
+   $ git add README.md
+   $ git rebase --continue
+   $ git push
 
 .. warning::
 
-   ¿Por qué hemos hecho rebase en master si a lo largo del curso hemos
-   dicho que no se debe cambiar la linea principal?
+   ¿Por qué hemos hecho rebase en *main* si a lo largo del curso hemos
+   dicho que no se debe cambiar la línea principal?
 
    Básicamente hemos dicho que lo que no debemos hacer es modificar la
    línea temporal **compartida**. En este caso nuestros cambios en
-   *master* solo estaban en nuestro repositorio, porque al fallar el
+   *main* solo estaban en nuestro repositorio, porque al fallar el
    envío nadie más ha visto nuestras actualizaciones. Al hacer
    *rebase* estamos deshaciendo nuestros cambios, bajarnos la última
-   actualización compartida de *master* y volviéndolos a aplicar. Con
+   actualización compartida de *main* y volviéndolos a aplicar. Con
    lo que realmente la historia compartida no se ha modificado.
 
 Este es un problema que debemos evitar en la medida de lo posible. La
 menor cantidad de gente posible debe tener acceso de escritura en
-master y las actualizaciones de dicha rama deben hacerse a través de
-ramas secundarias y haciendo merge en master como hemos visto en el
-capítulo de ramas.
+*main* y las actualizaciones de dicha rama deben hacerse a través de
+ramas secundarias y haciendo :term:`merge` en *main* como hemos visto
+en el capítulo de ramas.
 
 .. _`_no_puedo_hacer_pull`:
 
