@@ -318,20 +318,20 @@ como <em>solo lectura</em>.</p>
 <p>Vamos a aprovechar para añadir la clave RSA que generamos antes, para
 poder acceder desde git a los repositorios. Para ellos nos vamos al menú
 de configuración de usuario (<em>Settings</em>)</p>
-<figure class="align-default" id="id12">
+<figure class="align-default" id="id14">
 <img alt="Barra principal de menú" src="_images/github-topbar.png" />
 <figcaption>
-<p><span class="caption-text">Barra principal de menú</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Barra principal de menú</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Nos vamos al menú <em>SSH and GPG Keys</em> y añadimos una nueva clave. En
 <em>Title</em> indicamos una descripción que nos ayude a saber de dónde procede
 la clave y en key volcamos el contenido del archivo
 <code class="docutils literal notranslate"><span class="pre">~/.ssh/id_ed25519.pub</span></code>. Y guardamos la clave.</p>
-<figure class="align-default" id="id13">
+<figure class="align-default" id="id15">
 <img alt="Clave SSH" src="_images/github-sshkeys.png" />
 <figcaption>
-<p><span class="caption-text">Clave SSH</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Clave SSH</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Con esto ya tendriamos todo nuestro entorno para poder empezar a
@@ -355,10 +355,10 @@ pulsamos el signo <em>+</em> que hay en la barra superior y seleccionamos
 <em>New repository</em>.</p>
 <p>Ahora tenemos que designar un nombre para nuestro repositorio, por
 ejemplo: <em>taller-de-git</em>.</p>
-<figure class="align-default" id="id14">
+<figure class="align-default" id="id16">
 <img alt="Nuevo repositorio" src="_images/github-newrepo.png" />
 <figcaption>
-<p><span class="caption-text">Nuevo repositorio</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Nuevo repositorio</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Nada más crear el repositorio nos saldrá una pantalla con instrucciones
@@ -370,10 +370,10 @@ precisas de como proceder a continuación.</p>
 <li><p>Queremos importar un repositorio de otro sistema de control de
 versiones distinto.</p></li>
 </ol>
-<figure class="align-default" id="id15">
+<figure class="align-default" id="id17">
 <img alt="Quick setup" src="_images/github-quicksetup.png" />
 <figcaption>
-<p><span class="caption-text">Quick setup</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Quick setup</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -383,21 +383,27 @@ versiones distinto.</p></li>
 querer descargarlo en otro de nuestros ordenadores para poder trabajar
 en él. Esta acción se denomina <strong>clonar</strong> y para ello usaremos la orden
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>.</p>
+<figure class="align-default" id="id18">
+<img alt="Clonar o descargar" src="_images/github-clone-or-download.png" />
+<figcaption>
+<p><span class="caption-text">Clonar o descargar</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>En la página principal de nuestro proyecto podemos ver un botón que
-indica <code class="docutils literal notranslate"><span class="pre">Clone</span> <span class="pre">or</span> <span class="pre">download</span></code>. Si la pulsamos nos da, de nuevo, la opción
-de elegir entre clonar con <em>ssh</em> o <em>https</em>. Recordad que si estáis en
+indica <a href="#id6"><span class="problematic" id="id7">``</span></a>Code`. Si lo pulsamos aparece <em>clone</em> o <em>download</em>. Podemos
+elegir entre clonar con <em>ssh</em> o <em>https</em>. Recordad que si estáis en
 otro equipo y queréis seguir utilizando ssh deberéis generar otra para
 de claves privada/pública como hicimos anteriormente e instalarla en
 nuestro perfil de Github.</p>
 <p>Para clonar nuestro repositorio y poder trabajar con él todo lo que
 debemos hacer es lo siguiente:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:sgomez/taller-de-git.git
-<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>taller-de-git
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:fraya/curso-de-git.git
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>curso-de-git
 </pre></div>
 </div>
 </section>
 <section id="ramas-remotas">
-<span id="id6"></span><h2>Ramas remotas<a class="headerlink" href="#ramas-remotas" title="Link to this heading">¶</a></h2>
+<span id="id8"></span><h2>Ramas remotas<a class="headerlink" href="#ramas-remotas" title="Link to this heading">¶</a></h2>
 <p>Si ahora vemos el estado de nuestro proyecto veremos algo similar a
 esto:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>hist<span class="w"> </span>--all
@@ -443,7 +449,7 @@ repositorio con el remoto. Mientras que <em>fetch</em> se encarga de traer los
 cambios desde el repositorio remoto al nuestro, <em>push</em> los envía.</p>
 </section>
 <section id="enviando-actualizaciones">
-<span id="id7"></span><h2>Enviando actualizaciones<a class="headerlink" href="#enviando-actualizaciones" title="Link to this heading">¶</a></h2>
+<span id="id9"></span><h2>Enviando actualizaciones<a class="headerlink" href="#enviando-actualizaciones" title="Link to this heading">¶</a></h2>
 <p>Vamos a añadir una licencia a nuestra aplicación. Creamos un fichero
 LICENSE con el siguiente contenido:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">MIT License</span>
@@ -528,7 +534,7 @@ indicar ningún parámetro al hacer push.</p>
 </div>
 </section>
 <section id="recibiendo-actualizaciones">
-<span id="id8"></span><h2>Recibiendo actualizaciones<a class="headerlink" href="#recibiendo-actualizaciones" title="Link to this heading">¶</a></h2>
+<span id="id10"></span><h2>Recibiendo actualizaciones<a class="headerlink" href="#recibiendo-actualizaciones" title="Link to this heading">¶</a></h2>
 <p>Si trabajamos con más personas, o trabajamos desde dos ordenadores
 distintos, nos encontraremos con que nuestro repositorio local es más
 antiguo que el remoto. Necesitamos descargar los cambios para poder
@@ -537,10 +543,10 @@ incorporarlos a nuestro directorio de trabajo.</p>
 web. Pulsamos sobre el archivo <code class="docutils literal notranslate"><span class="pre">README.md</span></code>. En la vista del archivo,
 veremos que aparece el icono de un lápiz. Esto nos permite editar el
 archivo.</p>
-<figure class="align-default" id="id16">
+<figure class="align-default" id="id19">
 <img alt="Editar archivo" src="_images/github-edit.png" />
 <figcaption>
-<p><span class="caption-text">Editar archivo</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Editar archivo</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -558,10 +564,10 @@ nombre:</p>
 <span class="go">Desarrollado por Sergio Gómez.</span>
 </pre></div>
 </div>
-<figure class="align-default" id="id17">
+<figure class="align-default" id="id20">
 <img alt="Confirmar cambios" src="_images/github-changes.png" />
 <figcaption>
-<p><span class="caption-text">Confirmar cambios</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Confirmar cambios</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>El cambio quedará incorporado al repositorio de Github, pero no al
@@ -662,9 +668,9 @@ algo más:</p>
 de <em>master</em> están sincronizadas.</p>
 </section>
 <section id="problemas-de-sincronizacion">
-<span id="id9"></span><h2>Problemas de sincronización<a class="headerlink" href="#problemas-de-sincronizacion" title="Link to this heading">¶</a></h2>
+<span id="id11"></span><h2>Problemas de sincronización<a class="headerlink" href="#problemas-de-sincronizacion" title="Link to this heading">¶</a></h2>
 <section id="no-puedo-hacer-push">
-<span id="id10"></span><h3>No puedo hacer push<a class="headerlink" href="#no-puedo-hacer-push" title="Link to this heading">¶</a></h3>
+<span id="id12"></span><h3>No puedo hacer push<a class="headerlink" href="#no-puedo-hacer-push" title="Link to this heading">¶</a></h3>
 <p>Al intentar subir cambios nos podemos encontrar un mensaje como este:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>push
 <span class="go">git push</span>
@@ -770,7 +776,7 @@ ramas secundarias y haciendo merge en master como hemos visto en el
 capítulo de ramas.</p>
 </section>
 <section id="no-puedo-hacer-pull">
-<span id="id11"></span><h3>No puedo hacer pull<a class="headerlink" href="#no-puedo-hacer-pull" title="Link to this heading">¶</a></h3>
+<span id="id13"></span><h3>No puedo hacer pull<a class="headerlink" href="#no-puedo-hacer-pull" title="Link to this heading">¶</a></h3>
 <p>Al intentar descargar cambios nos podemos encontrar un mensaje como
 este:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>pull
