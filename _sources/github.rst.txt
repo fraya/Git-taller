@@ -427,28 +427,32 @@ ramas usando ``git merge`` o ``git rebase``.
 Habitualmente se usa ``git merge``:
 
 .. code-block:: console
+   :caption: Mezclamos el repositorio
 
-   $ git merge origin/master
-   Updating 3f5cb1c..cbaf831
+   $ git merge origin/main
+
+.. code-block:: console
+   :caption: Salida del comando *merge*
+
+   $ git merge origin/main
+   Updating 70ef551..257432b
    Fast-forward
-    README.md | 2 ++
-    1 file changed, 2 insertions(+)
+    README.md | 4 ++++
+    1 file changed, 4 insertions(+)
+
+.. code-block::
+   :caption: Salida del historial tras *merge*
+	     
    $ git hist --all
-   * cbaf831 2013-06-16 | Actualizado README.md (HEAD -> master, origin/master) [Sergio Gómez]
-   * 3f5cb1c 2013-06-16 | Añadida licencia [Sergio Gómez]
-   * 2eab8ca 2013-06-16 | Aplicando los cambios de la rama hola [Sergio Gomez]
-   *\
-   | * 9862f33 2013-06-16 | hola usa la clase HolaMundo (hola) [Sergio Gómez]
-   | * 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]
-   |/
-   * 9c85275 2013-06-16 | Programa interactivo (master) [Sergio Gómez]
-   * c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]
-   * 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]
-   * 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]
-   * fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]
-   * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]
-   * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
-   * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
+   * [2024-07-08] [257432b] | Update README.md {{Fernando Raya}}  (HEAD -> main, origin/main)
+   * [2024-07-08] [70ef551] | Añadida licencia {{Fernando Raya}} 
+   * [2024-07-05] [b386fd2] | Reordenar ficheros en subdirectorios {{Fernando Raya}} 
+   * [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}} 
+   * [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)
+   * [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)
+   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}} 
+   * [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}} 
+   * [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}} 
 
 Como las operaciones de traer cambios (``git fetch``) y de mezclar ramas
 (``git merge`` o ``git rebase``) están muy asociadas, *git* nos ofrece

@@ -644,28 +644,36 @@ delante que <code class="docutils literal notranslate"><span class="pre">HEAD</s
 local.  La forma de hacerlo lo vimos en el capítulo anterior mezclar
 ramas usando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> o <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code>.</p>
 <p>Habitualmente se usa <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>merge<span class="w"> </span>origin/master
-<span class="go">Updating 3f5cb1c..cbaf831</span>
-<span class="go">Fast-forward</span>
-<span class="go"> README.md | 2 ++</span>
-<span class="go"> 1 file changed, 2 insertions(+)</span>
-<span class="gp">$ </span>git<span class="w"> </span>hist<span class="w"> </span>--all
-<span class="go">* cbaf831 2013-06-16 | Actualizado README.md (HEAD -&gt; master, origin/master) [Sergio Gómez]</span>
-<span class="go">* 3f5cb1c 2013-06-16 | Añadida licencia [Sergio Gómez]</span>
-<span class="go">* 2eab8ca 2013-06-16 | Aplicando los cambios de la rama hola [Sergio Gomez]</span>
-<span class="go">*\</span>
-<span class="go">| * 9862f33 2013-06-16 | hola usa la clase HolaMundo (hola) [Sergio Gómez]</span>
-<span class="go">| * 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]</span>
-<span class="go">|/</span>
-<span class="go">* 9c85275 2013-06-16 | Programa interactivo (master) [Sergio Gómez]</span>
-<span class="go">* c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]</span>
-<span class="go">* 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]</span>
-<span class="go">* 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]</span>
-<span class="go">* fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]</span>
-<span class="go">* 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]</span>
-<span class="go">* efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]</span>
-<span class="go">* e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]</span>
+<div class="literal-block-wrapper docutils container" id="id33">
+<div class="code-block-caption"><span class="caption-text">Mezclamos el repositorio</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>merge<span class="w"> </span>origin/main
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id34">
+<div class="code-block-caption"><span class="caption-text">Salida del comando <em>merge</em></span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>merge<span class="w"> </span>origin/main
+<span class="go">Updating 70ef551..257432b</span>
+<span class="go">Fast-forward</span>
+<span class="go"> README.md | 4 ++++</span>
+<span class="go"> 1 file changed, 4 insertions(+)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id35">
+<div class="code-block-caption"><span class="caption-text">Salida del historial tras <em>merge</em></span><a class="headerlink" href="#id35" title="Link to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git hist --all
+* [2024-07-08] [257432b] | Update README.md {{Fernando Raya}}  (HEAD -&gt; main, origin/main)
+* [2024-07-08] [70ef551] | Añadida licencia {{Fernando Raya}}
+* [2024-07-05] [b386fd2] | Reordenar ficheros en subdirectorios {{Fernando Raya}}
+* [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}}
+* [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)
+* [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)
+* [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}}
+* [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}}
+* [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}}
+</pre></div>
+</div>
 </div>
 <p>Como las operaciones de traer cambios (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code>) y de mezclar ramas
 (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> o <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code>) están muy asociadas, <em>git</em> nos ofrece
