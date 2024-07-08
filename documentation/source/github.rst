@@ -179,23 +179,18 @@ Si ahora vemos el estado de nuestro proyecto veremos algo similar a
 esto:
 
 .. code-block:: console
+   :caption: Listado del historial
 
    $ git hist --all
-   * 2eab8ca 2013-06-16 | Aplicando los cambios de la rama hola (HEAD -> master, origin/master) [Sergio Gomez]
-   *\
-   | * 9862f33 2013-06-16 | hola usa la clase HolaMundo (hola) [Sergio Gómez]
-   | * 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]
-   |/
-   * 9c85275 2013-06-16 | Programa interactivo (master) [Sergio Gómez]
-   * c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]
-   * 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]
-   * 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]
-   * fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]
-   * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]
-   * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
-   * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
-
-Aparece que hay una nueva rama llamada ``origin/master``. Esta rama
+   * [2024-07-05] [b386fd2] | Reordenar ficheros en subdirectorios {{Fernando Raya}}  (HEAD -> main, origin/main)
+   * [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}} 
+   * [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)
+   * [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)
+   * [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}} 
+   * [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}} 
+   * [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}}
+  
+Aparece que hay una nueva rama llamada ``origin/main``. Esta rama
 indica el estado de sincronización de nuestro repositorio con un
 repositorio remoto llamado *origin*. En este caso el de *Github*.
 
@@ -208,17 +203,20 @@ Podemos ver la configuración de este repositorio remoto con la orden
 ``git remote``:
 
 .. code-block:: console
+   :caption: git remote show origin
 
-   $ git remote show origin
-   * remote origin
-     Fetch URL: git@github.com:sgomez/taller-de-git.git
-     Push  URL: git@github.com:sgomez/taller-de-git.git
-     HEAD branch: master
-     Remote branch:
-       master tracked
-     Local ref configured for 'git push':
-       master pushes to master (up to date)
-
+$ git remote show origin
+* remote origin
+  Fetch URL: git@github.com:fraya/curso-de-git.git
+  Push  URL: git@github.com:fraya/curso-de-git.git
+  HEAD branch: main
+  Remote branch:
+    main tracked
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (up to date)
+    
 De la respuesta tenemos que fijarnos en las líneas que indican *fetch* y
 *push* puesto que son las acciones de sincronización de nuestro
 repositorio con el remoto. Mientras que *fetch* se encarga de traer los
