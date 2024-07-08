@@ -406,23 +406,20 @@ debemos hacer es lo siguiente:</p>
 <span id="id8"></span><h2>Ramas remotas<a class="headerlink" href="#ramas-remotas" title="Link to this heading">¶</a></h2>
 <p>Si ahora vemos el estado de nuestro proyecto veremos algo similar a
 esto:</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Listado del historial</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>hist<span class="w"> </span>--all
-<span class="go">* 2eab8ca 2013-06-16 | Aplicando los cambios de la rama hola (HEAD -&gt; master, origin/master) [Sergio Gomez]</span>
-<span class="go">*\</span>
-<span class="go">| * 9862f33 2013-06-16 | hola usa la clase HolaMundo (hola) [Sergio Gómez]</span>
-<span class="go">| * 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]</span>
-<span class="go">|/</span>
-<span class="go">* 9c85275 2013-06-16 | Programa interactivo (master) [Sergio Gómez]</span>
-<span class="go">* c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]</span>
-<span class="go">* 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]</span>
-<span class="go">* 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]</span>
-<span class="go">* fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]</span>
-<span class="go">* 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]</span>
-<span class="go">* efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]</span>
-<span class="go">* e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]</span>
+<span class="go">* [2024-07-05] [b386fd2] | Reordenar ficheros en subdirectorios {{Fernando Raya}}  (HEAD -&gt; main, origin/main)</span>
+<span class="go">* [2024-07-05] [1419047] | Añadido el autor del programa y su email {{Fernando Raya}}</span>
+<span class="go">* [2024-05-23] [f0b885f] | Añade README {{Fernando Raya}}  (tag: v1.1)</span>
+<span class="go">* [2024-05-23] [88a170e] | Añadir comentario {{Fernando Raya}}  (tag: v1)</span>
+<span class="go">* [2024-05-23] [dfb648b] | Añadir parámetro por defecto {{Fernando Raya}}</span>
+<span class="go">* [2024-05-23] [7645f86] | Parametrizar el mensaje de saludo {{Fernando Raya}}</span>
+<span class="go">* [2024-05-22] [6bf8f65] | Revision inicial {{Fernando Raya}}</span>
 </pre></div>
 </div>
-<p>Aparece que hay una nueva rama llamada <code class="docutils literal notranslate"><span class="pre">origin/master</span></code>. Esta rama
+</div>
+<p>Aparece que hay una nueva rama llamada <code class="docutils literal notranslate"><span class="pre">origin/main</span></code>. Esta rama
 indica el estado de sincronización de nuestro repositorio con un
 repositorio remoto llamado <em>origin</em>. En este caso el de <em>Github</em>.</p>
 <div class="admonition note">
@@ -432,17 +429,29 @@ el que sincronizamos nuestro repositorio.</p>
 </div>
 <p>Podemos ver la configuración de este repositorio remoto con la orden
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>show<span class="w"> </span>origin
-<span class="go">* remote origin</span>
-<span class="go">  Fetch URL: git@github.com:sgomez/taller-de-git.git</span>
-<span class="go">  Push  URL: git@github.com:sgomez/taller-de-git.git</span>
-<span class="go">  HEAD branch: master</span>
-<span class="go">  Remote branch:</span>
-<span class="go">    master tracked</span>
-<span class="go">  Local ref configured for &#39;git push&#39;:</span>
-<span class="go">    master pushes to master (up to date)</span>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">git remote show origin</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+</div>
+<p>$ git remote show origin
+* remote origin</p>
+<blockquote>
+<div><p>Fetch URL: <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:fraya/curso-de-git.git
+Push  URL: <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:fraya/curso-de-git.git
+HEAD branch: main
+Remote branch:</p>
+<blockquote>
+<div><p>main tracked</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Local branch configured for “git pull”:</dt><dd><p>main merges with remote main</p>
+</dd>
+<dt>Local ref configured for “git push”:</dt><dd><p>main pushes to main (up to date)</p>
+</dd>
+</dl>
+</div></blockquote>
 <p>De la respuesta tenemos que fijarnos en las líneas que indican <em>fetch</em> y
 <em>push</em> puesto que son las acciones de sincronización de nuestro
 repositorio con el remoto. Mientras que <em>fetch</em> se encarga de traer los
@@ -543,10 +552,10 @@ incorporarlos a nuestro directorio de trabajo.</p>
 web. Pulsamos sobre el archivo <code class="docutils literal notranslate"><span class="pre">README.md</span></code>. En la vista del archivo,
 veremos que aparece el icono de un lápiz. Esto nos permite editar el
 archivo.</p>
-<figure class="align-default" id="id19">
+<figure class="align-default" id="id21">
 <img alt="Editar archivo" src="_images/github-edit.png" />
 <figcaption>
-<p><span class="caption-text">Editar archivo</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Editar archivo</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -564,10 +573,10 @@ nombre:</p>
 <span class="go">Desarrollado por Sergio Gómez.</span>
 </pre></div>
 </div>
-<figure class="align-default" id="id20">
+<figure class="align-default" id="id22">
 <img alt="Confirmar cambios" src="_images/github-changes.png" />
 <figcaption>
-<p><span class="caption-text">Confirmar cambios</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Confirmar cambios</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>El cambio quedará incorporado al repositorio de Github, pero no al
