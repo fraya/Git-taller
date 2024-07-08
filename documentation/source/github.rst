@@ -150,9 +150,14 @@ querer descargarlo en otro de nuestros ordenadores para poder trabajar
 en él. Esta acción se denomina **clonar** y para ello usaremos la orden
 ``git clone``.
 
+.. figure:: images/github-clone-or-download.png
+   :alt: Clonar o descargar
+
+   Clonar o descargar
+
 En la página principal de nuestro proyecto podemos ver un botón que
-indica ``Clone or download``. Si la pulsamos nos da, de nuevo, la opción
-de elegir entre clonar con *ssh* o *https*. Recordad que si estáis en
+indica ``Code`. Si lo pulsamos aparece *clone* o *download*. Podemos
+elegir entre clonar con *ssh* o *https*. Recordad que si estáis en
 otro equipo y queréis seguir utilizando ssh deberéis generar otra para
 de claves privada/pública como hicimos anteriormente e instalarla en
 nuestro perfil de Github.
@@ -162,8 +167,8 @@ debemos hacer es lo siguiente:
 
 .. code-block:: console
 
-   $ git clone git@github.com:sgomez/taller-de-git.git
-   $ cd taller-de-git
+   $ git clone git@github.com:fraya/curso-de-git.git
+   $ cd curso-de-git
 
 .. _`_ramas_remotas`:
 
