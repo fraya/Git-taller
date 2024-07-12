@@ -881,8 +881,8 @@ este:</p>
 </pre></div>
 </div>
 <p>Básicamente lo que ocurre es que tenemos cambios sin confirmar en
-nuestro espacio de trabajo. Una opción es confirmar (<em>commit</em>) y
-entonces proceder como el caso anterior.</p>
+nuestro espacio de trabajo. Una opción es <a class="reference internal" href="glosario.html#term-Commit"><span class="xref std std-term">commit</span></a> y entonces
+proceder como el caso anterior.</p>
 <p>Pero puede ocurrir que aún estemos trabajando todavía y no nos
 interese confirmar los cambios, solo queremos sincronizar y seguir
 trabajando.  Para casos como estos <em>git</em> ofrece una pila para guardar
@@ -890,16 +890,27 @@ cambios temporalmente. Esta pila se llama <em>stash</em> y nos permite
 restaurar el espacio de trabajo al último commit.</p>
 <p>De nuevo vamos a modificar nuestro proyecto para ver esta situación en
 acción.</p>
-<div class="informalexample docutils container">
 <p>En remoto borra el año de la fecha y en local borra el mes. Pero esta
 vez <strong>no hagas commit en local</strong>. El archivo solo debe quedar
 modificado.</p>
-</div>
 <p>La forma de proceder es la siguiente:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git stash save # Guardamos los cambios en la pila
-$ git pull # Sincronizamos con el repositorio remoto, -r para hacer rebase puede ser requerido
-$ git stash pop # Sacamos los cambios de la pila
+<div class="literal-block-wrapper docutils container" id="id45">
+<div class="code-block-caption"><span class="caption-text">Guardamos los cambios en la pila</span><a class="headerlink" href="#id45" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>stash<span class="w"> </span>save
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id46">
+<div class="code-block-caption"><span class="caption-text">Sincronizamos con el repositorio remoto, <code class="docutils literal notranslate"><span class="pre">-r</span></code> para hacer rebase puede ser requerido</span><a class="headerlink" href="#id46" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>pull
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id47">
+<div class="code-block-caption"><span class="caption-text">Sacamos los cambios de la pila</span><a class="headerlink" href="#id47" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>stash<span class="w"> </span>pop
+</pre></div>
+</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
