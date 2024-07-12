@@ -695,8 +695,8 @@ O como este:
    error: Cannot pull with rebase: Your index contains uncommitted changes.
 
 Básicamente lo que ocurre es que tenemos cambios sin confirmar en
-nuestro espacio de trabajo. Una opción es confirmar (*commit*) y
-entonces proceder como el caso anterior.
+nuestro espacio de trabajo. Una opción es :term:`commit` y entonces
+proceder como el caso anterior.
 
 Pero puede ocurrir que aún estemos trabajando todavía y no nos
 interese confirmar los cambios, solo queremos sincronizar y seguir
@@ -707,19 +707,26 @@ restaurar el espacio de trabajo al último commit.
 De nuevo vamos a modificar nuestro proyecto para ver esta situación en
 acción.
 
-.. container:: informalexample
-
-   En remoto borra el año de la fecha y en local borra el mes. Pero esta
-   vez **no hagas commit en local**. El archivo solo debe quedar
-   modificado.
+En remoto borra el año de la fecha y en local borra el mes. Pero esta
+vez **no hagas commit en local**. El archivo solo debe quedar
+modificado.
 
 La forma de proceder es la siguiente:
 
-::
+.. code-block:: console
+   :caption: Guardamos los cambios en la pila
 
-   $ git stash save # Guardamos los cambios en la pila
-   $ git pull # Sincronizamos con el repositorio remoto, -r para hacer rebase puede ser requerido
-   $ git stash pop # Sacamos los cambios de la pila
+   $ git stash save
+
+.. code-block:: console
+   :caption: Sincronizamos con el repositorio remoto, ``-r`` para hacer rebase puede ser requerido
+
+   $ git pull
+
+.. code-block:: console
+   :caption: Sacamos los cambios de la pila
+
+   $ git stash pop
 
 .. note::
 
