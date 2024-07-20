@@ -550,7 +550,7 @@ manera.
 
    # Curso de GIT
    v0.1.0
-   
+
 Realiza un :term:`commit` para guardar el cambio en local.
 
 .. code-block:: console
@@ -632,7 +632,7 @@ El contenido final del fichero podría ser el siguiente:
 
 .. code-block:: console
    :caption: Fichero ``README.md``
-	     
+
    # Curso de Git
    v0.1.1
 
@@ -646,11 +646,11 @@ El contenido final del fichero podría ser el siguiente:
 
    Ver fichero [LICENSE](./LICENSE)
 
-   
+
 A continuación confirmamos los cambios y los enviamos al servidor
 
 .. code-block:: console
-		
+
    $ git add README.md
    $ git rebase --continue
    $ git push
@@ -707,9 +707,29 @@ restaurar el espacio de trabajo al último commit.
 De nuevo vamos a modificar nuestro proyecto para ver esta situación en
 acción.
 
-En remoto borra el año de la fecha y en local borra el mes. Pero esta
-vez **no hagas commit en local**. El archivo solo debe quedar
-modificado.
+- En remoto realiza un cambio en ``README.md`` y confírmalo.
+
+- En local realiza otro cambio distingo en el fichero anterior, pero
+  esta vez **no hagas commit en local**. El archivo solo debe quedar
+  modificado.
+
+.. code-block:: console
+   :caption: Intentamos hacer ``pull`` con cambios confirmados en remoto y cambios en local
+   :emphasize-lines: 12
+
+   $ git pull
+   remote: Enumerating objects: 5, done.
+   remote: Counting objects: 100% (5/5), done.
+   remote: Compressing objects: 100% (3/3), done.
+   remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+   Unpacking objects: 100% (3/3), 934 bytes | 934.00 KiB/s, done.
+   From github.com:fraya/curso-de-git
+      95f8aab..b15078e  main       -> origin/main
+   Updating 95f8aab..b15078e
+   error: Your local changes to the following files would be overwritten by merge:
+	   README.md
+   Please commit your changes or stash them before you merge.
+   Aborting
 
 La forma de proceder es la siguiente:
 
