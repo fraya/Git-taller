@@ -891,24 +891,45 @@ cambios temporalmente. Esta pila se llama <em>stash</em> y nos permite
 restaurar el espacio de trabajo al último commit.</p>
 <p>De nuevo vamos a modificar nuestro proyecto para ver esta situación en
 acción.</p>
-<p>En remoto borra el año de la fecha y en local borra el mes. Pero esta
-vez <strong>no hagas commit en local</strong>. El archivo solo debe quedar
-modificado.</p>
-<p>La forma de proceder es la siguiente:</p>
+<ul class="simple">
+<li><p>En remoto realiza un cambio en <code class="docutils literal notranslate"><span class="pre">README.md</span></code> y confírmalo.</p></li>
+<li><p>En local realiza otro cambio distingo en el fichero anterior, pero
+esta vez <strong>no hagas commit en local</strong>. El archivo solo debe quedar
+modificado.</p></li>
+</ul>
 <div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-text">Guardamos los cambios en la pila</span><a class="headerlink" href="#id45" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">Intentamos hacer <code class="docutils literal notranslate"><span class="pre">pull</span></code> con cambios confirmados en remoto y cambios en local</span><a class="headerlink" href="#id45" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>pull
+<span class="go">remote: Enumerating objects: 5, done.</span>
+<span class="go">remote: Counting objects: 100% (5/5), done.</span>
+<span class="go">remote: Compressing objects: 100% (3/3), done.</span>
+<span class="go">remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0</span>
+<span class="go">Unpacking objects: 100% (3/3), 934 bytes | 934.00 KiB/s, done.</span>
+<span class="go">From github.com:fraya/curso-de-git</span>
+<span class="go">   95f8aab..b15078e  main       -&gt; origin/main</span>
+<span class="go">Updating 95f8aab..b15078e</span>
+<span class="go">error: Your local changes to the following files would be overwritten by merge:</span>
+<span class="go">        README.md</span>
+<span class="hll"><span class="go">Please commit your changes or stash them before you merge.</span>
+</span><span class="go">Aborting</span>
+</pre></div>
+</div>
+</div>
+<p>La forma de proceder es la siguiente:</p>
+<div class="literal-block-wrapper docutils container" id="id46">
+<div class="code-block-caption"><span class="caption-text">Guardamos los cambios en la pila</span><a class="headerlink" href="#id46" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>stash<span class="w"> </span>save
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id46">
-<div class="code-block-caption"><span class="caption-text">Sincronizamos con el repositorio remoto, <code class="docutils literal notranslate"><span class="pre">-r</span></code> para hacer rebase puede ser requerido</span><a class="headerlink" href="#id46" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id47">
+<div class="code-block-caption"><span class="caption-text">Sincronizamos con el repositorio remoto, <code class="docutils literal notranslate"><span class="pre">-r</span></code> para hacer rebase puede ser requerido</span><a class="headerlink" href="#id47" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>pull
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id47">
-<div class="code-block-caption"><span class="caption-text">Sacamos los cambios de la pila</span><a class="headerlink" href="#id47" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id48">
+<div class="code-block-caption"><span class="caption-text">Sacamos los cambios de la pila</span><a class="headerlink" href="#id48" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>stash<span class="w"> </span>pop
 </pre></div>
 </div>
