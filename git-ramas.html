@@ -319,42 +319,63 @@ pero podremos modificarlo pasando el parámetro opcional <em>saludo</em>.</p>
 </div>
 </div>
 <p>Añadiremos una nueva prueba.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Fichero <code class="docutils literal notranslate"><span class="pre">curso-de-git-test-suite.dylan</span></code></span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w"> </span><span class="s">curso-de-git-test-suite</span>
+
+<span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">test-$greeting</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">assert-equal</span><span class="p">(</span><span class="s">&quot;Hola&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">$greeting</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">test-greeting</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">assert-equal</span><span class="p">(</span><span class="s">&quot;¡Hola mundo!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">(</span><span class="s">&quot;mundo&quot;</span><span class="p">));</span>
+<span class="k">end</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+<span class="hll">
+</span><span class="hll"><span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">test-greeting-saludos</span><span class="w"> </span><span class="p">()</span>
+</span><span class="hll"><span class="w">  </span><span class="n">assert-equal</span><span class="p">(</span><span class="s">&quot;¡Saludos mundo!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">(</span><span class="s">&quot;mundo&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">saludo:</span><span class="w"> </span><span class="s">&quot;Saludos&quot;</span><span class="p">));</span>
+</span><span class="k">end</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+
+<span class="c1">// Use `_build/bin/curso-de-git-test-suite --help` to see options.</span>
+<span class="n">run-test-application</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 <p>Podríamos confirmar los cambios todos de golpe, pero lo haremos de uno
 en uno, con su comentario.</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Añadir el fichero <code class="docutils literal notranslate"><span class="pre">curso-de-git.dylan</span></code> modificado a Git</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Añadir el fichero <code class="docutils literal notranslate"><span class="pre">curso-de-git.dylan</span></code> modificado a Git</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>source/lib/curso-de-git.dylan
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Confirmar cambios</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Confirmar cambios</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Saludo como parámetro&quot;</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Salida de la confirmación</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Salida de la confirmación</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Saludo como parámetro&quot;</span>
 <span class="go">[borrar-constante d209b81] Saludo como parámetro</span>
 <span class="go">1 file changed, 2 insertions(+), 2 deletions(-)</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Añadimos el fichero de pruebas a Git</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Añadimos el fichero de pruebas a Git</span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>tests/curso-de-git-test-suite.dylan
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Confirmamos el cambio</span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Confirmamos el cambio</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Añadir prueba para saludo como parámetro&quot;</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Salida de la confirmación</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Salida de la confirmación</span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Añadir prueba para saludo como parámetro&quot;</span>
 <span class="go">[borrar-constante 9bd66c3] Añadir prueba para saludo como parámetro</span>
 <span class="go"> 1 file changed, 4 insertions(+)</span>
@@ -362,14 +383,14 @@ en uno, con su comentario.</p>
 </div>
 </div>
 <p>Y ahora con la orden <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> podemos movernos entre ramas:</p>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">Cambiar a la rama <code class="docutils literal notranslate"><span class="pre">main</span></code></span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Cambiar a la rama <code class="docutils literal notranslate"><span class="pre">main</span></code></span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>main
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">Cambiar a rama <code class="docutils literal notranslate"><span class="pre">borrar-constante</span></code></span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Cambiar a rama <code class="docutils literal notranslate"><span class="pre">borrar-constante</span></code></span><a class="headerlink" href="#id10" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>borrar-constante
 </pre></div>
 </div>
@@ -383,8 +404,8 @@ principal para anotar los cambios en las versiones:</p>
 <span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
 </pre></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Fichero <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code></span><a class="headerlink" href="#id10" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Fichero <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code></span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Changelog</span>
 
 Todos los cambios notables del proyecto serán documentados en este
@@ -400,20 +421,20 @@ fichero.
 </div>
 <p>Y lo añadimos a nuestro repositorio en la rama (<em>main</em>) en la que
 estamos:</p>
-<div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">Añadimos el fichero a Git</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Añadimos el fichero a Git</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>CHANGELOG
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">Confirmamos los cambios</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Confirmamos los cambios</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Añadido CHANGELOG&quot;</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">Salida del comando de confirmación</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Salida del comando de confirmación</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Añadido CHANGELOG&quot;</span>
 <span class="go">[main 658f895] Añadido CHANGELOG</span>
 <span class="go">1 file changed, 10 insertions(+)</span>
@@ -421,8 +442,8 @@ estamos:</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">Historial mostrando la bifurcación</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Historial mostrando la bifurcación</span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>hist<span class="w"> </span>--all
 <span class="go">* [2024-07-19] [658f895] | Añadido CHANGELOG {{Fernando Raya}}  (HEAD -&gt; main)</span>
 <span class="hll"><span class="go">| * [2024-07-19] [9bd66c3] | Añadir prueba para saludo como parámetro {{Fernando Raya}}  (borrar-constante)</span>
@@ -438,21 +459,21 @@ estamos:</p>
 <h4>Mezclar ramas<a class="headerlink" href="#mezclar-ramas" title="Link to this heading">¶</a></h4>
 <p>Podemos incorporar los cambios de una rama a otra con la orden <code class="docutils literal notranslate"><span class="pre">git</span>
 <span class="pre">merge</span></code>.</p>
-<div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">Cambiamos la rama a <code class="docutils literal notranslate"><span class="pre">borrar-constante</span></code></span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Cambiamos la rama a <code class="docutils literal notranslate"><span class="pre">borrar-constante</span></code></span><a class="headerlink" href="#id16" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>borrar-constante
 <span class="go">Switched to branch &#39;borrar-constante&#39;</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id16">
-<div class="code-block-caption"><span class="caption-text">Al mezclar las ramas, se abrirá el editor de texto con un mensaje.</span><a class="headerlink" href="#id16" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Al mezclar las ramas, se abrirá el editor de texto con un mensaje.</span><a class="headerlink" href="#id17" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>merge<span class="w"> </span>main
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id17">
-<div class="code-block-caption"><span class="caption-text">Salida de Git tras la fusión de ramas</span><a class="headerlink" href="#id17" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">Salida de Git tras la fusión de ramas</span><a class="headerlink" href="#id18" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>merge<span class="w"> </span>main
 <span class="go">Merge made by the &#39;ort&#39; strategy.</span>
 <span class="go">CHANGELOG | 10 ++++++++++</span>
@@ -461,8 +482,8 @@ estamos:</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id18">
-<div class="code-block-caption"><span class="caption-text">Historial tras la mezcla de ramas</span><a class="headerlink" href="#id18" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Historial tras la mezcla de ramas</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>hist<span class="w"> </span>--all
 <span class="go">*   [2024-07-20] [b42d86a] | Merge branch &#39;main&#39; into borrar-constante {{Fernando Raya}}  (HEAD -&gt; borrar-constante)</span>
 <span class="go">|\</span>
@@ -474,8 +495,8 @@ estamos:</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-text">En la rama <code class="docutils literal notranslate"><span class="pre">borrar-constante</span></code> no hay ningún cambio por confirmar</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">En la rama <code class="docutils literal notranslate"><span class="pre">borrar-constante</span></code> no hay ningún cambio por confirmar</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 <span class="go">On branch borrar-constante</span>
 <span class="go">nothing to commit, working tree clean</span>
@@ -484,8 +505,8 @@ estamos:</p>
 </div>
 <p>En mi ordenador, la rama <code class="docutils literal notranslate"><span class="pre">main</span></code> tiene un cambio no subido al
 repositorio remoto:</p>
-<div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-text">Estado de la rama <code class="docutils literal notranslate"><span class="pre">main</span></code></span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">Estado de la rama <code class="docutils literal notranslate"><span class="pre">main</span></code></span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 <span class="go">On branch main</span>
 <span class="go">Your branch is ahead of &#39;origin/main&#39; by 1 commit.</span>
@@ -493,8 +514,8 @@ repositorio remoto:</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-text">Confirmaremos los cambios</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text">Sincronizamos los cambios con servidor remoto (<em>origin</em>)</span><a class="headerlink" href="#id22" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>push
 <span class="go">Enumerating objects: 4, done.</span>
 <span class="go">Counting objects: 100% (4/4), done.</span>
@@ -514,122 +535,209 @@ cambios de la rama principal o de otra rama.</p>
 <section id="resolver-conflictos">
 <h4>Resolver conflictos<a class="headerlink" href="#resolver-conflictos" title="Link to this heading">¶</a></h4>
 <p>Un conflicto es cuando se produce una fusión que Git no es capaz de
-resolver. Vamos a modificar la rama main para crear uno con la rama
-hola.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
-Switched to branch &#39;main&#39;
+resolver. Vamos a modificar la rama <em>main</em> para crear un problema con la
+rama <em>borrar-constante</em>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>main
 </pre></div>
 </div>
-<p>Modificamos nuestro archivo <em>hola.php</em> de nuevo:</p>
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-<span class="c1">// Autor: Sergio Gómez &lt;sergio@uco.es&gt;</span>
-<span class="k">print</span> <span class="s2">&quot;Introduce tu nombre:&quot;</span><span class="p">;</span>
-<span class="nv">$nombre</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">fgets</span><span class="p">(</span><span class="nx">STDIN</span><span class="p">));</span>
-<span class="o">@</span><span class="k">print</span> <span class="s2">&quot;Hola, </span><span class="si">{</span><span class="nv">$nombre</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<p>Modificamos nuestro archivo <code class="docutils literal notranslate"><span class="pre">curso-de-git-app.dylan</span></code> de
+nuevo. Utilizaremos la función <code class="docutils literal notranslate"><span class="pre">first</span></code>, que devuelve el primer
+elemento de una lista. Si no hay ningún elemento devolveremos el valor
+del parámetro <code class="docutils literal notranslate"><span class="pre">default</span></code>, es decir <em>mundo</em>.</p>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">Fichero <code class="docutils literal notranslate"><span class="pre">curso-de-git-app.dylan</span></code></span><a class="headerlink" href="#id23" title="Link to this code">¶</a></div>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w"> </span><span class="s">curso-de-git-app</span>
+<span class="na">Author</span><span class="o">:</span><span class="w"> </span><span class="s">Fernando Raya</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">main</span>
+<span class="w">    </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;vector&gt;</span><span class="p">)</span>
+<span class="hll"><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">first</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span><span class="w"> </span><span class="k">default:</span><span class="w"> </span><span class="s">&quot;mundo&quot;</span><span class="p">);</span>
+</span><span class="w">  </span><span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">(</span><span class="n">mensaje</span><span class="p">));</span>
+<span class="w">  </span><span class="n">exit-application</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">function</span><span class="p">;</span>
+
+<span class="c1">// Calling our main function (which could have any name) should be the last</span>
+<span class="c1">// thing we do.</span>
+<span class="n">main</span><span class="p">(</span><span class="n">application-name</span><span class="p">(),</span><span class="w"> </span><span class="n">application-arguments</span><span class="p">());</span>
 </pre></div>
+</div>
 </div>
 <p>Y guardamos los cambios:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add lib/hola.php
-$ git commit -m &quot;Programa interactivo&quot;
-[main 9c85275] Programa interactivo
- 1 file changed, 2 insertions(+), 2 deletions(-)
-$ git hist --all
-*   9c6ac06 2013-06-16 | Merge commit &#39;c3e65d0&#39; into hola (hola) [Sergio Gómez]
-|\
-* | 9862f33 2013-06-16 | hola usa la clase HolaMundo [Sergio Gómez]
-* | 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]
-| | * 9c85275 2013-06-16 | Programa interactivo (HEAD, main) [Sergio Gómez]
-| |/
-| * c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]
-|/
-* 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]
-* 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]
-* fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]
-* 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]
-* efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
-* e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>app/curso-de-git-app.dylan
 </pre></div>
 </div>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>gitGraph:
-   commit id: &quot;e19f2c1&quot;
-   commit id: &quot;efc252e&quot;
-   commit id: &quot;3283e0d&quot; tag: &quot;v1-beta&quot;
-   commit id: &quot;fd4da94&quot; tag: &quot;v1&quot;
-   commit id: &quot;96a39df&quot;
-   commit id: &quot;8c2a509&quot;
-   branch hola
-   commit id: &quot;6932156&quot;
-   commit id: &quot;9862f33&quot;
-   checkout main
-   commit id: &quot;c3e65d0&quot;
-   checkout hola
-   merge main id: &quot;9c6ac06&quot;
-   checkout main
-   commit id: &quot;9c85275&quot;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Simplificar captura argumento&quot;</span>
 </pre></div>
 </div>
-<p>Volvemos a la rama hola y fusionamos:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout hola
-Switched to branch &#39;hola&#39;
-$ git merge main
-Auto-merging lib/hola.php
-CONFLICT (content): Merge conflict in lib/hola.php
-Automatic merge failed; fix conflicts and then commit the result.
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>hist<span class="w"> </span>--all
+<span class="go">* [2024-07-21] [b29d17a] | Simplificar captura argumento {{Fernando Raya}}  (HEAD -&gt; main)</span>
+<span class="go">| *   [2024-07-20] [b42d86a] | Merge branch &#39;main&#39; into borrar-constante {{Fernando Raya}}  (borrar-constante)</span>
+<span class="go">| |\</span>
+<span class="go">| |/</span>
+<span class="go">|/|</span>
+<span class="go">* | [2024-07-19] [658f895] | Añadido CHANGELOG {{Fernando Raya}}  (origin/main, origin/HEAD)</span>
+<span class="go">| * [2024-07-19] [9bd66c3] | Añadir prueba para saludo como parámetro {{Fernando Raya}}</span>
+<span class="go">| * [2024-07-19] [d209b81] | Saludo como parámetro {{Fernando Raya}}</span>
+<span class="go">|/</span>
+<span class="go">* [2024-07-12] [b9d1749] | doc: Ampliar descripción {{Fernando Raya}}</span>
 </pre></div>
 </div>
-<p>Si editamos nuestro archivo <code class="docutils literal notranslate"><span class="pre">lib/hola.php</span></code> obtendremos algo similar a
-esto:</p>
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-<span class="c1">// Autor: Sergio Gómez &lt;sergio@uco.es&gt;</span>
-<span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="nx">HEAD</span>
-<span class="c1">// El nombre por defecto es Mundo</span>
-<span class="k">require</span><span class="p">(</span><span class="s1">&#39;HolaMundo.php&#39;</span><span class="p">);</span>
+<p>Crearemos otra rama llamada <em>saludo-moderno</em> y modificamos el mismo fichero:</p>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">Crear rama y usarla como entorno de trabajo</span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>saludo-moderno
+</pre></div>
+</div>
+</div>
+<p>Modificaremos la palabra del saludo cambiando del valor por defecto
+<em>Hola</em> a la palabra <em>Hi</em>.</p>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text">Fichero <code class="docutils literal notranslate"><span class="pre">curso-de-git-app.dylan</span></code></span><a class="headerlink" href="#id25" title="Link to this code">¶</a></div>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w"> </span><span class="s">curso-de-git-app</span>
+<span class="na">Author</span><span class="o">:</span><span class="w"> </span><span class="s">Fernando Raya</span>
 
-<span class="nv">$nombre</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span> <span class="s2">&quot;Mundo&quot;</span><span class="p">;</span>
-<span class="k">print</span> <span class="k">new</span> <span class="nx">HolaMundo</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">);</span>
-<span class="o">=======</span>
-<span class="k">print</span> <span class="s2">&quot;Introduce tu nombre:&quot;</span><span class="p">;</span>
-<span class="nv">$nombre</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">fgets</span><span class="p">(</span><span class="nx">STDIN</span><span class="p">));</span>
-<span class="o">@</span><span class="k">print</span> <span class="s2">&quot;Hola, </span><span class="si">{</span><span class="nv">$nombre</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="nx">main</span>
+<span class="k">define</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">main</span>
+<span class="w">    </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;vector&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">first</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span><span class="w"> </span><span class="k">default:</span><span class="w"> </span><span class="s">&quot;mundo&quot;</span><span class="p">);</span>
+<span class="hll"><span class="w">  </span><span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">(</span><span class="n">mensaje</span><span class="p">,</span><span class="w"> </span><span class="k">saludo:</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">));</span>
+</span><span class="w">  </span><span class="n">exit-application</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">function</span><span class="p">;</span>
+
+<span class="c1">// Calling our main function (which could have any name) should be the last</span>
+<span class="c1">// thing we do.</span>
+<span class="n">main</span><span class="p">(</span><span class="n">application-name</span><span class="p">(),</span><span class="w"> </span><span class="n">application-arguments</span><span class="p">());</span>
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-text">Confirmamos los cambios</span><a class="headerlink" href="#id26" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Usar &#39;Hi&#39; en lugar de &#39;Hola&#39;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id27">
+<div class="code-block-caption"><span class="caption-text">Salida del comando anterior</span><a class="headerlink" href="#id27" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Usar &#39;Hi&#39; en lugar de &#39;Hola&#39;&quot;</span>
+<span class="go">[saludo-moderno 9647e4a] Usar &#39;Hi&#39; en lugar de &#39;Hola&#39;</span>
+<span class="go"> 1 file changed, 1 insertion(+), 1 deletion(-)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id28">
+<div class="code-block-caption"><span class="caption-text">Cambiaremos de nuevo a la rama <em>main</em></span><a class="headerlink" href="#id28" title="Link to this code">¶</a></div>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="n">main</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-text">Saludo en Esperanto en <code class="docutils literal notranslate"><span class="pre">curso-de-git-app.dylan</span></code></span><a class="headerlink" href="#id29" title="Link to this code">¶</a></div>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w"> </span><span class="s">curso-de-git-app</span>
+<span class="na">Author</span><span class="o">:</span><span class="w"> </span><span class="s">Fernando Raya</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">main</span>
+<span class="w">    </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;vector&gt;</span><span class="p">)</span>
+<span class="hll"><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">first</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span><span class="w"> </span><span class="k">default:</span><span class="w"> </span><span class="s">&quot;mundo&quot;</span><span class="p">);</span>
+</span><span class="w">  </span><span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">(</span><span class="n">mensaje</span><span class="p">,</span><span class="w"> </span><span class="k">saludo:</span><span class="w"> </span><span class="s">&quot;Saluton&quot;</span><span class="p">));</span>
+<span class="w">  </span><span class="n">exit-application</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">function</span><span class="p">;</span>
+
+<span class="c1">// Calling our main function (which could have any name) should be the last</span>
+<span class="c1">// thing we do.</span>
+<span class="n">main</span><span class="p">(</span><span class="n">application-name</span><span class="p">(),</span><span class="w"> </span><span class="n">application-arguments</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id30">
+<div class="code-block-caption"><span class="caption-text">Confirmamos el cambio</span><a class="headerlink" href="#id30" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Saludo en Esperanto&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id31">
+<div class="code-block-caption"><span class="caption-text">Cambiamos a la rama <em>salud-moderno</em></span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>saludo-moderno
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id32">
+<div class="code-block-caption"><span class="caption-text">Intentamos fusionar la rama <em>main</em> con la <em>saludo-moderno</em></span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>merge<span class="w"> </span>main
+<span class="go">Auto-merging source/app/curso-de-git-app.dylan</span>
+<span class="go">CONFLICT (content): Merge conflict in source/app/curso-de-git-app.dylan</span>
+<span class="go">Automatic merge failed; fix conflicts and then commit the result.</span>
+</pre></div>
+</div>
+</div>
+<p>Si editamos nuestro archivo <code class="docutils literal notranslate"><span class="pre">app/curso-de-git-app.dylan.php</span></code> obtendremos algo similar a
+esto:</p>
+<div class="literal-block-wrapper docutils container" id="id33">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">curso-de-git-app.dylan</span></code> fusión de ramas</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w"> </span><span class="s">curso-de-git-app</span>
+<span class="na">Author</span><span class="o">:</span><span class="w"> </span><span class="s">Fernando Raya</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">main</span>
+<span class="w">    </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;vector&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">first</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span><span class="w"> </span><span class="k">default:</span><span class="w"> </span><span class="s">&quot;mundo&quot;</span><span class="p">);</span>
+<span class="hll"><span class="n">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="w"> </span><span class="nb">HEAD</span>
+</span><span class="hll"><span class="w">  </span><span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">(</span><span class="n">mensaje</span><span class="p">,</span><span class="w"> </span><span class="k">saludo:</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">));</span>
+</span><span class="hll"><span class="n">=======</span>
+</span><span class="hll"><span class="w">  </span><span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">(</span><span class="n">mensaje</span><span class="p">,</span><span class="w"> </span><span class="k">saludo:</span><span class="w"> </span><span class="s">&quot;Saluton&quot;</span><span class="p">));</span>
+</span><span class="hll"><span class="n">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="w"> </span><span class="n">main</span>
+</span><span class="w">  </span><span class="n">exit-application</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">function</span><span class="p">;</span>
+
+<span class="c1">// Calling our main function (which could have any name) should be the last</span>
+<span class="c1">// thing we do.</span>
+<span class="n">main</span><span class="p">(</span><span class="n">application-name</span><span class="p">(),</span><span class="w"> </span><span class="n">application-arguments</span><span class="p">());</span>
+</pre></div>
+</div>
 </div>
 <p>La primera parte marca el código que estaba en la rama donde
 trabajábamos (HEAD) y la parte final el código de donde fusionábamos.
 Resolvemos el conflicto, dejando el archivo como sigue:</p>
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-<span class="c1">// Autor: Sergio Gómez &lt;sergio@uco.es&gt;</span>
-<span class="k">require</span><span class="p">(</span><span class="s1">&#39;HolaMundo.php&#39;</span><span class="p">);</span>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w"> </span><span class="s">curso-de-git-app</span>
+<span class="na">Author</span><span class="o">:</span><span class="w"> </span><span class="s">Fernando Raya</span>
 
-<span class="k">print</span> <span class="s2">&quot;Introduce tu nombre:&quot;</span><span class="p">;</span>
-<span class="nv">$nombre</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">fgets</span><span class="p">(</span><span class="nx">STDIN</span><span class="p">));</span>
-<span class="k">print</span> <span class="k">new</span> <span class="nx">HolaMundo</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">);</span>
+<span class="k">define</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">main</span>
+<span class="w">    </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;vector&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">first</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span><span class="w"> </span><span class="k">default:</span><span class="w"> </span><span class="s">&quot;mondo&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">(</span><span class="n">mensaje</span><span class="p">,</span><span class="w"> </span><span class="k">saludo:</span><span class="w"> </span><span class="s">&quot;Saluton&quot;</span><span class="p">));</span>
+<span class="w">  </span><span class="n">exit-application</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">function</span><span class="p">;</span>
+
+<span class="c1">// Calling our main function (which could have any name) should be the last</span>
+<span class="c1">// thing we do.</span>
+<span class="n">main</span><span class="p">(</span><span class="n">application-name</span><span class="p">(),</span><span class="w"> </span><span class="n">application-arguments</span><span class="p">());</span>
 </pre></div>
 </div>
 <p>Y resolvemos el conflicto confirmando los cambios:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add lib/hola.php
-$ git commit -m &quot;Solucionado el conflicto al fusionar con la rama main&quot;
-[hola a36af04] Solucionado el conflicto al fusionar con la rama main
+<div class="literal-block-wrapper docutils container" id="id34">
+<div class="code-block-caption"><span class="caption-text">Añadir el fichero al <a class="reference internal" href="glosario.html#term-Stage"><span class="xref std std-term">stage</span></a></span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>curso-de-git-app.dylan
 </pre></div>
 </div>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>gitGraph:
-   commit id: &quot;e19f2c1&quot;
-   commit id: &quot;efc252e&quot;
-   commit id: &quot;3283e0d&quot; tag: &quot;v1-beta&quot;
-   commit id: &quot;fd4da94&quot; tag: &quot;v1&quot;
-   commit id: &quot;96a39df&quot;
-   commit id: &quot;8c2a509&quot;
-   branch hola
-   commit id: &quot;6932156&quot;
-   commit id: &quot;9862f33&quot;
-   checkout main
-   commit id: &quot;c3e65d0&quot;
-   checkout hola
-   merge main id: &quot;9c6ac06&quot;
-   checkout main
-   commit id: &quot;9c85275&quot;
-   checkout hola
-   merge main id: &quot;a36af04&quot;
+</div>
+<div class="literal-block-wrapper docutils container" id="id35">
+<div class="code-block-caption"><span class="caption-text">Confirmamos el cambio</span><a class="headerlink" href="#id35" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Solucionado el conflicto al fusionar con la rama main&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id36">
+<div class="code-block-caption"><span class="caption-text">Salida del comando de la fusión</span><a class="headerlink" href="#id36" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Solucionado el conflicto al fusionar con la rama main&quot;</span>
+<span class="go">[saludo-moderno b829314] Solucionado el conflicto al fusionar con la rama main</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>main
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>merge<span class="w"> </span>saludo-moderno
+<span class="go">Updating c2c80fa..b829314</span>
+<span class="go">Fast-forward</span>
+<span class="go"> source/app/curso-de-git-app.dylan | 2 +-</span>
+<span class="go"> 1 file changed, 1 insertion(+), 1 deletion(-)</span>
 </pre></div>
 </div>
 </section>
@@ -677,21 +785,6 @@ HEAD is now at 9862f33 hola usa la clase HolaMundo
 * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]
 * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
 * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
-</pre></div>
-</div>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>gitGraph:
-   commit id: &quot;e19f2c1&quot;
-   commit id: &quot;efc252e&quot;
-   commit id: &quot;3283e0d&quot; tag: &quot;v1-beta&quot;
-   commit id: &quot;fd4da94&quot; tag: &quot;v1&quot;
-   commit id: &quot;96a39df&quot;
-   commit id: &quot;8c2a509&quot;
-   branch hola
-   commit id: &quot;6932156&quot;
-   commit id: &quot;9862f33&quot;
-   checkout main
-   commit id: &quot;c3e65d0&quot;
-   commit id: &quot;9c85275&quot;
 </pre></div>
 </div>
 <p>Hemos desecho todos los <em>merge</em> y nuestro árbol está <em>“limpio”</em>. Vamos a
@@ -863,10 +956,10 @@ $ git hist --all
 </pre></div>
 </div>
 <p>En la siguiente imagen se puede ver la diferencia:</p>
-<figure class="align-default" id="id22">
+<figure class="align-default" id="id37">
 <img alt="Diferencias entre tipos de fusión" src="images/gitlab-merge-ff.png" />
 <figcaption>
-<p><span class="caption-text">Diferencias entre tipos de fusión</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Diferencias entre tipos de fusión</span><a class="headerlink" href="#id37" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
