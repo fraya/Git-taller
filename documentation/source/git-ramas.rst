@@ -67,7 +67,7 @@ Añadiremos una nueva prueba.
 
 .. code-block:: dylan
    :caption: Fichero ``curso-de-git-test-suite.dylan``
-   :highlight-lines: 10-12
+   :emphasize-lines: 10-12
 
    Module: curso-de-git-test-suite
 
@@ -251,7 +251,7 @@ repositorio remoto:
      (use "git push" to publish your local commits)
 
 .. code-block:: console
-   :caption: Confirmaremos los cambios
+   :caption: Sincronizamos los cambios con servidor remoto (*origin*)
 
    $ git push
    Enumerating objects: 4, done.
@@ -271,139 +271,215 @@ Resolver conflictos
 ~~~~~~~~~~~~~~~~~~~
 
 Un conflicto es cuando se produce una fusión que Git no es capaz de
-resolver. Vamos a modificar la rama main para crear uno con la rama
-hola.
+resolver. Vamos a modificar la rama *main* para crear un problema con la
+rama *borrar-constante*.
 
-::
+.. code-block:: console
 
    $ git checkout main
-   Switched to branch 'main'
 
-Modificamos nuestro archivo *hola.php* de nuevo:
+Modificamos nuestro archivo ``curso-de-git-app.dylan`` de
+nuevo. Utilizaremos la función ``first``, que devuelve el primer
+elemento de una lista. Si no hay ningún elemento devolveremos el valor
+del parámetro ``default``, es decir *mundo*.
 
-.. code:: php
+.. code-block:: dylan
+   :caption: Fichero ``curso-de-git-app.dylan``
+   :emphasize-lines: 6
 
-   <?php
-   // Autor: Sergio Gómez <sergio@uco.es>
-   print "Introduce tu nombre:";
-   $nombre = trim(fgets(STDIN));
-   @print "Hola, {$nombre}\n";
+   Module: curso-de-git-app
+   Author: Fernando Raya
+
+   define function main
+       (name :: <string>, arguments :: <vector>)
+     let mensaje = first(arguments, default: "mundo");
+     format-out("%s\n", greeting(mensaje));
+     exit-application(0);
+   end function;
+
+   // Calling our main function (which could have any name) should be the last
+   // thing we do.
+   main(application-name(), application-arguments());
 
 Y guardamos los cambios:
 
-::
+.. code-block:: console
 
-   $ git add lib/hola.php
-   $ git commit -m "Programa interactivo"
-   [main 9c85275] Programa interactivo
-    1 file changed, 2 insertions(+), 2 deletions(-)
+   $ git add app/curso-de-git-app.dylan
+
+.. code-block:: console
+
+   $ git commit -m "Simplificar captura argumento"
+
+.. code-block:: console
+
    $ git hist --all
-   *   9c6ac06 2013-06-16 | Merge commit 'c3e65d0' into hola (hola) [Sergio Gómez]
-   |\
-   * | 9862f33 2013-06-16 | hola usa la clase HolaMundo [Sergio Gómez]
-   * | 6932156 2013-06-16 | Añadida la clase HolaMundo [Sergio Gómez]
-   | | * 9c85275 2013-06-16 | Programa interactivo (HEAD, main) [Sergio Gómez]
-   | |/
-   | * c3e65d0 2013-06-16 | Añadido README.md [Sergio Gómez]
-   |/
-   * 81c6e93 2013-06-16 | Movido hola.php a lib [Sergio Gómez]
-   * 96a39df 2013-06-16 | Añadido el autor del programa y su email [Sergio Gómez]
-   * fd4da94 2013-06-16 | Se añade un comentario al cambio del valor por defecto (tag: v1) [Sergio Gómez]
-   * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]
-   * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
-   * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
+   * [2024-07-21] [b29d17a] | Simplificar captura argumento {{Fernando Raya}}  (HEAD -> main)
+   | *   [2024-07-20] [b42d86a] | Merge branch 'main' into borrar-constante {{Fernando Raya}}  (borrar-constante)
+   | |\  
+   | |/  
+   |/|   
+   * | [2024-07-19] [658f895] | Añadido CHANGELOG {{Fernando Raya}}  (origin/main, origin/HEAD)
+   | * [2024-07-19] [9bd66c3] | Añadir prueba para saludo como parámetro {{Fernando Raya}} 
+   | * [2024-07-19] [d209b81] | Saludo como parámetro {{Fernando Raya}} 
+   |/  
+   * [2024-07-12] [b9d1749] | doc: Ampliar descripción {{Fernando Raya}}
+  
+Crearemos otra rama llamada *saludo-moderno* y modificamos el mismo fichero:
 
-.. code:: mermaid
+.. code-block:: console
+   :caption: Crear rama y usarla como entorno de trabajo
 
-   gitGraph:
-      commit id: "e19f2c1"
-      commit id: "efc252e"
-      commit id: "3283e0d" tag: "v1-beta"
-      commit id: "fd4da94" tag: "v1"
-      commit id: "96a39df"
-      commit id: "8c2a509"
-      branch hola
-      commit id: "6932156"
-      commit id: "9862f33"
-      checkout main
-      commit id: "c3e65d0"
-      checkout hola
-      merge main id: "9c6ac06"
-      checkout main
-      commit id: "9c85275"
+   $ git checkout -b saludo-moderno
 
-Volvemos a la rama hola y fusionamos:
+Modificaremos la palabra del saludo cambiando del valor por defecto
+*Hola* a la palabra *Hi*.
 
-::
+.. code-block:: dylan
+   :caption: Fichero ``curso-de-git-app.dylan``
+   :emphasize-lines: 7	     
 
-   $ git checkout hola
-   Switched to branch 'hola'
+   Module: curso-de-git-app
+   Author: Fernando Raya
+
+   define function main
+       (name :: <string>, arguments :: <vector>)
+     let mensaje = first(arguments, default: "mundo");
+     format-out("%s\n", greeting(mensaje, saludo: "Hi"));
+     exit-application(0);
+   end function;
+
+   // Calling our main function (which could have any name) should be the last
+   // thing we do.
+   main(application-name(), application-arguments());
+
+.. code-block:: console
+   :caption: Confirmamos los cambios		
+
+   $ git commit -a -m "Usar 'Hi' en lugar de 'Hola'"
+
+.. code-block:: console
+   :caption: Salida del comando anterior		
+
+   $ git commit -a -m "Usar 'Hi' en lugar de 'Hola'"
+   [saludo-moderno 9647e4a] Usar 'Hi' en lugar de 'Hola'
+    1 file changed, 1 insertion(+), 1 deletion(-)		
+
+.. code-block:: dylan
+   :caption: Cambiaremos de nuevo a la rama *main*		
+
+   $ git checkout main
+
+.. code-block:: dylan
+   :caption: Saludo en Esperanto en ``curso-de-git-app.dylan``		
+   :emphasize-lines: 6
+		
+   Module: curso-de-git-app
+   Author: Fernando Raya
+
+   define function main
+       (name :: <string>, arguments :: <vector>)
+     let mensaje = first(arguments, default: "mundo");
+     format-out("%s\n", greeting(mensaje, saludo: "Saluton"));
+     exit-application(0);
+   end function;
+
+   // Calling our main function (which could have any name) should be the last
+   // thing we do.
+   main(application-name(), application-arguments());
+
+.. code-block:: console
+   :caption: Confirmamos el cambio
+
+   $ git commit -a -m "Saludo en Esperanto"
+
+.. code-block:: console
+   :caption: Cambiamos a la rama *salud-moderno*
+
+   $ git checkout saludo-moderno	     
+
+.. code-block:: console
+   :caption: Intentamos fusionar la rama *main* con la *saludo-moderno*		
+
    $ git merge main
-   Auto-merging lib/hola.php
-   CONFLICT (content): Merge conflict in lib/hola.php
+   Auto-merging source/app/curso-de-git-app.dylan
+   CONFLICT (content): Merge conflict in source/app/curso-de-git-app.dylan
    Automatic merge failed; fix conflicts and then commit the result.
 
-Si editamos nuestro archivo ``lib/hola.php`` obtendremos algo similar a
+Si editamos nuestro archivo ``app/curso-de-git-app.dylan.php`` obtendremos algo similar a
 esto:
 
-.. code:: php
+.. code-block:: dylan
+   :caption: ``curso-de-git-app.dylan`` fusión de ramas	  
+   :emphasize-lines: 7-11
 
-   <?php
-   // Autor: Sergio Gómez <sergio@uco.es>
+   Module: curso-de-git-app
+   Author: Fernando Raya
+
+   define function main
+       (name :: <string>, arguments :: <vector>)
+     let mensaje = first(arguments, default: "mundo");
    <<<<<<< HEAD
-   // El nombre por defecto es Mundo
-   require('HolaMundo.php');
-
-   $nombre = isset($argv[1]) ? $argv[1] : "Mundo";
-   print new HolaMundo($nombre);
+     format-out("%s\n", greeting(mensaje, saludo: "Hi"));
    =======
-   print "Introduce tu nombre:";
-   $nombre = trim(fgets(STDIN));
-   @print "Hola, {$nombre}\n";
+     format-out("%s\n", greeting(mensaje, saludo: "Saluton"));
    >>>>>>> main
+     exit-application(0);
+   end function;
+
+   // Calling our main function (which could have any name) should be the last
+   // thing we do.
+   main(application-name(), application-arguments());
 
 La primera parte marca el código que estaba en la rama donde
 trabajábamos (HEAD) y la parte final el código de donde fusionábamos.
 Resolvemos el conflicto, dejando el archivo como sigue:
 
-.. code:: php
+.. code-block:: dylan
 
-   <?php
-   // Autor: Sergio Gómez <sergio@uco.es>
-   require('HolaMundo.php');
+   Module: curso-de-git-app
+   Author: Fernando Raya
 
-   print "Introduce tu nombre:";
-   $nombre = trim(fgets(STDIN));
-   print new HolaMundo($nombre);
+   define function main
+       (name :: <string>, arguments :: <vector>)
+     let mensaje = first(arguments, default: "mondo");
+     format-out("%s\n", greeting(mensaje, saludo: "Saluton"));
+     exit-application(0);
+   end function;
+
+   // Calling our main function (which could have any name) should be the last
+   // thing we do.
+   main(application-name(), application-arguments());
 
 Y resolvemos el conflicto confirmando los cambios:
 
-::
+.. code-block:: console
+   :caption: Añadir el fichero al :term:`stage`	  
 
-   $ git add lib/hola.php
+   $ git add curso-de-git-app.dylan
+
+.. code-block:: console
+   :caption: Confirmamos el cambio	  
+	  
    $ git commit -m "Solucionado el conflicto al fusionar con la rama main"
-   [hola a36af04] Solucionado el conflicto al fusionar con la rama main
 
-.. code:: mermaid
+.. code-block:: console
+   :caption: Salida del comando de la fusión	  
 
-   gitGraph:
-      commit id: "e19f2c1"
-      commit id: "efc252e"
-      commit id: "3283e0d" tag: "v1-beta"
-      commit id: "fd4da94" tag: "v1"
-      commit id: "96a39df"
-      commit id: "8c2a509"
-      branch hola
-      commit id: "6932156"
-      commit id: "9862f33"
-      checkout main
-      commit id: "c3e65d0"
-      checkout hola
-      merge main id: "9c6ac06"
-      checkout main
-      commit id: "9c85275"
-      checkout hola
-      merge main id: "a36af04"
+   $ git commit -m "Solucionado el conflicto al fusionar con la rama main"
+   [saludo-moderno b829314] Solucionado el conflicto al fusionar con la rama main
+
+.. code-block:: console
+
+   $ git checkout main
+
+.. code-block:: console
+
+   $ git merge saludo-moderno
+   Updating c2c80fa..b829314
+   Fast-forward
+    source/app/curso-de-git-app.dylan | 2 +-
+    1 file changed, 1 insertion(+), 1 deletion(-)	  
 
 Rebasing vs Merging
 ~~~~~~~~~~~~~~~~~~~
@@ -456,22 +532,6 @@ Y nuestro estado será:
    * 3283e0d 2013-06-16 | Se añade un parámetro por defecto (tag: v1-beta) [Sergio Gómez]
    * efc252e 2013-06-16 | Parametrización del programa [Sergio Gómez]
    * e19f2c1 2013-06-16 | Creación del proyecto [Sergio Gómez]
-
-.. code:: mermaid
-
-   gitGraph:
-      commit id: "e19f2c1"
-      commit id: "efc252e"
-      commit id: "3283e0d" tag: "v1-beta"
-      commit id: "fd4da94" tag: "v1"
-      commit id: "96a39df"
-      commit id: "8c2a509"
-      branch hola
-      commit id: "6932156"
-      commit id: "9862f33"
-      checkout main
-      commit id: "c3e65d0"
-      commit id: "9c85275"
 
 Hemos desecho todos los *merge* y nuestro árbol está *“limpio”*. Vamos a
 probar ahora a hacer un rebase. Continuamos en la rama ``hola`` y
