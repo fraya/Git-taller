@@ -316,15 +316,15 @@ Y guardamos los cambios:
    $ git hist --all
    * [2024-07-21] [b29d17a] | Simplificar captura argumento {{Fernando Raya}}  (HEAD -> main)
    | *   [2024-07-20] [b42d86a] | Merge branch 'main' into borrar-constante {{Fernando Raya}}  (borrar-constante)
-   | |\  
-   | |/  
-   |/|   
+   | |\
+   | |/
+   |/|
    * | [2024-07-19] [658f895] | Añadido CHANGELOG {{Fernando Raya}}  (origin/main, origin/HEAD)
    | * [2024-07-19] [9bd66c3] | Añadir prueba para saludo como parámetro {{Fernando Raya}} 
-   | * [2024-07-19] [d209b81] | Saludo como parámetro {{Fernando Raya}} 
-   |/  
+   | * [2024-07-19] [d209b81] | Saludo como parámetro {{Fernando Raya}}
+   |/
    * [2024-07-12] [b9d1749] | doc: Ampliar descripción {{Fernando Raya}}
-  
+
 Crearemos otra rama llamada *saludo-moderno* y modificamos el mismo fichero:
 
 .. code-block:: console
@@ -337,7 +337,7 @@ Modificaremos la palabra del saludo cambiando del valor por defecto
 
 .. code-block:: dylan
    :caption: Fichero ``curso-de-git-app.dylan``
-   :emphasize-lines: 7	     
+   :emphasize-lines: 7
 
    Module: curso-de-git-app
    Author: Fernando Raya
@@ -354,26 +354,26 @@ Modificaremos la palabra del saludo cambiando del valor por defecto
    main(application-name(), application-arguments());
 
 .. code-block:: console
-   :caption: Confirmamos los cambios		
+   :caption: Confirmamos los cambios
 
    $ git commit -a -m "Usar 'Hi' en lugar de 'Hola'"
 
 .. code-block:: console
-   :caption: Salida del comando anterior		
+   :caption: Salida del comando anterior
 
    $ git commit -a -m "Usar 'Hi' en lugar de 'Hola'"
    [saludo-moderno 9647e4a] Usar 'Hi' en lugar de 'Hola'
-    1 file changed, 1 insertion(+), 1 deletion(-)		
+    1 file changed, 1 insertion(+), 1 deletion(-)
 
 .. code-block:: dylan
-   :caption: Cambiaremos de nuevo a la rama *main*		
+   :caption: Cambiaremos de nuevo a la rama *main*
 
    $ git checkout main
 
 .. code-block:: dylan
-   :caption: Saludo en Esperanto en ``curso-de-git-app.dylan``		
+   :caption: Saludo en Esperanto en ``curso-de-git-app.dylan``
    :emphasize-lines: 6
-		
+
    Module: curso-de-git-app
    Author: Fernando Raya
 
@@ -396,10 +396,10 @@ Modificaremos la palabra del saludo cambiando del valor por defecto
 .. code-block:: console
    :caption: Cambiamos a la rama *salud-moderno*
 
-   $ git checkout saludo-moderno	     
+   $ git checkout saludo-moderno
 
 .. code-block:: console
-   :caption: Intentamos fusionar la rama *main* con la *saludo-moderno*		
+   :caption: Intentamos fusionar la rama *main* con la *saludo-moderno*
 
    $ git merge main
    Auto-merging source/app/curso-de-git-app.dylan
@@ -410,7 +410,7 @@ Si editamos nuestro archivo ``app/curso-de-git-app.dylan.php`` obtendremos algo 
 esto:
 
 .. code-block:: dylan
-   :caption: ``curso-de-git-app.dylan`` fusión de ramas	  
+   :caption: ``curso-de-git-app.dylan`` fusión de ramas
    :emphasize-lines: 7-11
 
    Module: curso-de-git-app
@@ -454,16 +454,17 @@ Resolvemos el conflicto, dejando el archivo como sigue:
 Y resolvemos el conflicto confirmando los cambios:
 
 .. code-block:: console
-   :caption: Añadir el fichero al :term:`stage`	  
+   :caption: Añadir el fichero al :term:`stage`
 
    $ git add curso-de-git-app.dylan
 
 .. code-block:: console
-   :caption: Confirmamos el cambio	  
-	  
+   :caption: Confirmamos el cambio
+
    $ git commit -m "Solucionado el conflicto al fusionar con la rama main"
 
 .. code-block:: console
+   :caption: Cambiamos a la rama ``main``
 
    $ git checkout main
 
@@ -473,7 +474,7 @@ Y resolvemos el conflicto confirmando los cambios:
    Updating c2c80fa..b829314
    Fast-forward
     source/app/curso-de-git-app.dylan | 2 +-
-    1 file changed, 1 insertion(+), 1 deletion(-)	  
+    1 file changed, 1 insertion(+), 1 deletion(-)
 
 Rebasing vs Merging
 ~~~~~~~~~~~~~~~~~~~
