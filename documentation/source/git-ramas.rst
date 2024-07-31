@@ -469,12 +469,9 @@ Y resolvemos el conflicto confirmando los cambios:
    $ git checkout main
 
 .. code-block:: console
+   :caption: Fusionamos las ramas una vez solucionado el conflicto
 
    $ git merge saludo-moderno
-   Updating c2c80fa..b829314
-   Fast-forward
-    source/app/curso-de-git-app.dylan | 2 +-
-    1 file changed, 1 insertion(+), 1 deletion(-)
 
 Rebasing vs Merging
 ~~~~~~~~~~~~~~~~~~~
