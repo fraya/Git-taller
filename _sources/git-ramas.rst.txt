@@ -464,12 +464,6 @@ Y resolvemos el conflicto confirmando los cambios:
    $ git commit -m "Solucionado el conflicto al fusionar con la rama main"
 
 .. code-block:: console
-   :caption: Salida del comando de la fusión	  
-
-   $ git commit -m "Solucionado el conflicto al fusionar con la rama main"
-   [saludo-moderno b829314] Solucionado el conflicto al fusionar con la rama main
-
-.. code-block:: console
 
    $ git checkout main
 
